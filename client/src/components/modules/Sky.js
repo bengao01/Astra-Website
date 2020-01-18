@@ -126,50 +126,51 @@ class Sky extends Component{
 
     render(){
         return(
-            <div ref={stageContainer => (this.stageContainer = stageContainer)}>
-                <Stage 
-                width={window.innerWidth} height={window.innerHeight}
-                onWheel={this.handleWheel}
-                onClick={this.handleClick}
-                scaleX={this.state.stageScale}
-                scaleY={this.state.stageScale}
-                x={this.state.stageX}
-                y={this.state.stageY}
-                >
-                    <Layer
-                        draggable
-                        x={this.state.imageX}
-                        y={this.state.imageY}
-                        ref={node => {
-                        this.imageNode = node;
-                        }}
-                        onDragEnd={this.handleImageDragEnd}
+            <div className="Sky-body">
+                <div ref={stageContainer => (this.stageContainer = stageContainer)}>
+                    <Stage 
+                    width={window.innerWidth} height={window.innerHeight}
+                    onWheel={this.handleWheel}
+                    onClick={this.handleClick}
+                    scaleX={this.state.stageScale}
+                    scaleY={this.state.stageScale}
+                    x={this.state.stageX}
+                    y={this.state.stageY}
                     >
-                    <Text text="CONNECT THE DOTS" fill="white"/>
-                    {this.state.stars.map((star) => 
-                        <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
-                    )}
-
-                    {this.props.learning && this.state.fixedConstellations.map((constellation) => 
-                        <Constellation edges={constellation}/>
-                    )}
-
-                    </Layer>
-                    <Layer>
-                        <Group
-                            x={0}
-                            y={0}
-                            rotation={45}
+                        <Layer
+                            draggable
+                            x={this.state.imageX}
+                            y={this.state.imageY}
                             ref={node => {
-                            this.group = node;
+                            this.imageNode = node;
                             }}
+                            onDragEnd={this.handleImageDragEnd}
                         >
-                        </Group>
-                    </Layer>
+                        <Text text="CONNECT THE DOTS" fill="white"/>
+                        {this.state.stars.map((star) => 
+                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
+                        )}
 
-                </Stage>
-            </div>
-            
+                        {this.props.learning && this.state.fixedConstellations.map((constellation) => 
+                            <Constellation edges={constellation}/>
+                        )}
+
+                        </Layer>
+                        <Layer>
+                            <Group
+                                x={0}
+                                y={0}
+                                rotation={45}
+                                ref={node => {
+                                this.group = node;
+                                }}
+                            >
+                            </Group>
+                        </Layer>
+
+                    </Stage>
+                </div>
+              </div>            
         );
     
     }
