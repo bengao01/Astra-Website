@@ -28,16 +28,19 @@ class Sky extends Component{
         }
     }
 
-    static defaultProps = {};
-
+    
     isOnStar = (x, y) => {
-        for(let i=0; i< this.state.stars.length; i++){
-            if (Math.sqrt((x-this.state.stars[i][0]-this.state.starsize) ** 2 + (y - this.state.stars[i][1]-this.state.starsize) ** 2) < this.state.starsize){
+        for(let i=0; i < this.state.stars.length; i++){
+            if (Math.abs(x-this.state.stars[i][0]) <= this.state.starsize && Math.abs(y - this.state.stars[i][1]) <= this.state.starsize){
+                console.log("Onstar works")
+
                 return true;
             }
         }
         return false;
     }
+
+    static defaultProps = {};
 
     handleWheel = e => {
         e.evt.preventDefault();
@@ -57,13 +60,9 @@ class Sky extends Component{
           stageY:
             -(mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale
         });
-      };
-
-      //For a given position x, y, and our list of stars, tells you if that position is on top of any of the stars
-    
+      };      
 
       handleClick = e => {
-          console.log("clicked");
         const stage = e.target.getStage();
         const pos = stage.getPointerPosition();
     
@@ -76,7 +75,6 @@ class Sky extends Component{
         const pointPos = invertedTransform.point(pos);
 
         if (this.isOnStar(pos.x,pos.y)){
-            console.log("Onstar works")
             this.setState({
                 firstclick: true,
                 edge: [[pos.x, pos.y]],
@@ -122,7 +120,7 @@ class Sky extends Component{
     }
 
 
-    addEdge(){
+    addEdge = (x1, y1, x2, y2) => {
 
     }
 
