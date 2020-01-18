@@ -4,7 +4,7 @@ import Star from "./Star.js"
 import "./Sky.css"
 import Konva from 'konva';
 import { render } from 'react-dom';
-import { Stage, Layer, Text } from 'react-konva';
+import { Stage, Layer, Text, Group, Circle} from 'react-konva';
 
 //has a props: learning-if learning mode is on
 class Sky extends Component{
@@ -13,9 +13,107 @@ class Sky extends Component{
         this.state = {
             fixedConstellations : [[[120, 120], [180, 180]], [[180, 180], [350, 350]]],
             stars : [[120, 120], [180, 180], [350, 350]],
-            newConstellations : []
+            newConstellations : [],
+            points: [],
+            starsize: 10,
+            stageScale: 1,
+            stageWidth: 0,
+            stageX: 0,
+            stageY: 0,
+            imageX: 0,
+            imageY: 0,
+            firstclick: false,
+            secondclick: false,
+            edge: [],
         }
     }
+
+    static defaultProps = {};
+
+    isOnStar = (x, y) => {
+        for(let i=0; i< this.state.stars.length; i++){
+            if (Math.sqrt((x-this.state.stars[i][0]-this.state.starsize) ** 2 + (y - this.state.stars[i][1]-this.state.starsize) ** 2) < this.state.starsize){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    handleWheel = e => {
+        e.evt.preventDefault();
+        const scaleBy = 1.01;
+        const stage = e.target.getStage();
+        const oldScale = stage.scaleX();
+        const mousePointTo = {
+          x: stage.getPointerPosition().x / oldScale - stage.x() / oldScale,
+          y: stage.getPointerPosition().y / oldScale - stage.y() / oldScale
+        };
+        const newScale = e.evt.deltaY > 0 ? oldScale * scaleBy : oldScale / scaleBy;
+        stage.scale({ x: newScale, y: newScale });
+        this.setState({
+          stageScale: newScale,
+          stageX:
+            -(mousePointTo.x - stage.getPointerPosition().x / newScale) * newScale,
+          stageY:
+            -(mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale
+        });
+      };
+
+      //For a given position x, y, and our list of stars, tells you if that position is on top of any of the stars
+    
+
+      handleClick = e => {
+          console.log("clicked");
+        const stage = e.target.getStage();
+        const pos = stage.getPointerPosition();
+    
+        const absTransform = this.group.getAbsoluteTransform();
+    
+        const invertedTransform = new Konva.Transform(
+          absTransform.getMatrix()
+        ).invert();
+    
+        const pointPos = invertedTransform.point(pos);
+
+        if (this.isOnStar(pos.x,pos.y)){
+            console.log("Onstar works")
+            this.setState({
+                firstclick: true,
+                edge: [[pos.x, pos.y]],
+            })
+        }
+    
+        if(this.state.firstclick){
+            let temp = this.state.edge.concat([pos.x, pos.y]);
+          this.setState({
+            secondclick: true,
+            constellations: constellations.concat(temp),
+            edge: [],
+          })
+        }
+
+        if(this.state.secondclick){
+            this.setState({
+                firstclick: false,
+                secondclick: false,
+            })
+        }
+    
+        this.setState({
+          points: this.state.points.concat([pointPos]),
+        });
+
+
+      };
+
+
+      handleImageDragEnd = e => {
+        this.setState({
+          imageX: e.target.x(),
+          imageY: e.target.y()
+        });
+      };
+
 
     
     componentDidMount(){
@@ -30,12 +128,28 @@ class Sky extends Component{
 
     render(){
         return(
-            <>
-                <Stage width={window.innerWidth} height={window.innerHeight}>
-                    <Layer>
-                    <Text text="Try to drag a star" />
+            <div ref={stageContainer => (this.stageContainer = stageContainer)}>
+                <Stage 
+                width={window.innerWidth} height={window.innerHeight}
+                onWheel={this.handleWheel}
+                onClick={this.handleClick}
+                scaleX={this.state.stageScale}
+                scaleY={this.state.stageScale}
+                x={this.state.stageX}
+                y={this.state.stageY}
+                >
+                    <Layer
+                        draggable
+                        x={this.state.imageX}
+                        y={this.state.imageY}
+                        ref={node => {
+                        this.imageNode = node;
+                        }}
+                        onDragEnd={this.handleImageDragEnd}
+                    >
+                    <Text text="CONNECT THE DOTS" fill="white"/>
                     {this.state.stars.map((star) => 
-                        <Star position={star}/>
+                        <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
                     )}
 
                     {this.props.learning && this.state.fixedConstellations.map((constellation) => 
@@ -43,9 +157,20 @@ class Sky extends Component{
                     )}
 
                     </Layer>
+                    <Layer>
+                        <Group
+                            x={0}
+                            y={0}
+                            rotation={45}
+                            ref={node => {
+                            this.group = node;
+                            }}
+                        >
+                        </Group>
+                    </Layer>
 
                 </Stage>
-            </>
+            </div>
             
         );
     
