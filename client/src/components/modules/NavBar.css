@@ -1,0 +1,39 @@
+.NavBar-container {
+    padding: var(--s) var(--m);
+    background-color: #011f4b; /* Define in root later as variable #2B2F77 #483475*/
+    /* display: flex; */
+  }
+  
+  .NavBar-title {
+    color: var(--white);
+    font-size: 20px;
+  }
+  
+  .NavBar-linkContainer {
+    margin-left: var(--l);
+  }
+  
+  .NavBar-link,
+  .NavBar-link:visited {
+    color: var(--white);
+    opacity: 0.6;
+    text-decoration: none;
+    /* display: flex; */
+    /* justify-content: flex-start; */
+  }
+  
+  .NavBar-link:hover {
+    opacity: 0.8;
+  }
+  
+  .NavBar-link.NavBar-login {
+    opacity: 1;
+    /* display: flex; reference by root later */
+    /* justify-content: flex-end; */
+    /* margin-left: 20px; */
+  }
+  
+  .NavBar-link + .NavBar-link {
+    margin-left: var(--m);
+  }
+  

@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 import Sky from "./../modules/Sky.js"
+import Constellation from "./../modules/Constellation.js"
+import NavBar from "../modules/NavBar.js"
 
 import "../../utilities.css";
 import "./Skeleton.css";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "121479668229-t5j82jrbi9oejh7c8avada226s75bopn.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "201457722316-pqqtv96dl1ib3oschj9lde0l0f0mdlph.apps.googleusercontent.com";
 
 class Skeleton extends Component {
   constructor(props) {
@@ -21,25 +23,10 @@ class Skeleton extends Component {
 
   render() {
     return (
-      <>
-        {this.props.userId ? (
-          <GoogleLogout
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Logout"
-            onLogoutSuccess={this.props.handleLogout}
-            onFailure={(err) => console.log(err)}
-          />
-        ) : (
-          <GoogleLogin
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Login"
-            onSuccess={this.props.handleLogin}
-            onFailure={(err) => console.log(err)}
-          />
-        )}    
-        <Sky></Sky>
-        <h1>Good luck on your project :)</h1>
-        <h2> What we provide in this skeleton</h2>
+      <> 
+        {/* <h1>Good luck on your project :)</h1>
+
+          <h2> What we provide in this skeleton</h2>
         <ul>
           <li>Google Auth (Skeleton.js & auth.js)</li>
           <li>Socket Infrastructure (client-socket.js & server-socket.js)</li>
@@ -55,6 +42,30 @@ class Skeleton extends Component {
           <li>Add a favicon to your website at the path client/dist/favicon.ico</li>
           <li>Update website title in client/dist/index.html</li>
         </ul>
+        {/* <Constellation></Constellation> */}
+        <Sky></Sky>
+        <section>
+          <div className="main">
+          <div className="title">
+            ASTRA
+          </div>
+          <div className="quote">
+            reach for the stars
+          </div>
+          <div className="constellation-image">
+          </div>
+          </div>
+        </section>
+        <section>  
+          <div className="instructions-block">
+          <div className="instructions-title">
+            Instructions
+          </div>
+          <div className="instructions">
+            This is how you use Astra!
+          </div>
+          </div>
+        </section>
       </>
     );
   }
