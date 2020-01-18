@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
-import Sky from "./../modules/Sky.js"
-import Constellation from "./../modules/Constellation.js"
+import Sky from "../modules/Sky.js"
+import Constellation from "../modules/Constellation.js"
 import NavBar from "../modules/NavBar.js"
 
 import "../../utilities.css";
-import "./Skeleton.css";
+import "./Home.css";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "201457722316-pqqtv96dl1ib3oschj9lde0l0f0mdlph.apps.googleusercontent.com";
 
-class Skeleton extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     // Initialize Default State
@@ -43,7 +43,6 @@ class Skeleton extends Component {
           <li>Update website title in client/dist/index.html</li>
         </ul>
         {/* <Constellation></Constellation> */}
-        <Sky></Sky>
         <section>
           <div className="main">
           <div className="title">
@@ -71,4 +70,4 @@ class Skeleton extends Component {
   }
 }
 
-export default Skeleton;
+export default Home;
