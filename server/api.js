@@ -48,12 +48,43 @@ router.post("/initsocket", (req, res) => {
 router.get("/user", (req, res) => {
   User.findById(req.query.userid).then((user) => {
     res.send(user);
-  })
+  });
 });
 
-// router.get("/sky", (req, res) => {
-//   Sky.findbyID(req.query.skyid).then((sky))
-// });
+router.get("/sky", (req, res) => {
+  Sky.find({
+    creator: req.user._id,
+  }).then((sky) => {
+    res.send(sky);
+  });
+});
+
+router.post("/sky", (req, res) => {
+  const newSky = new Sky({
+    name: req.body.name,
+    creator: req.user._id,
+  });
+
+  newSky.save().then((sky) => res.send(sky));
+});
+
+router.get("/constellation", (req, res) => {
+  Constellation.find({
+    creator: req.user._id,
+    sky_id: req.query.sky_id,
+  }).then((constellation) => {
+    res.send(constellation);
+  });
+});
+
+router.post("/constellation", (req, res) => {
+  const newConstellation = new Constellation({
+    name: req.body.name,
+    creator: req.user._id,
+  });
+
+  newConstellation.save().then((constellation) => res.send(constellation));
+});
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

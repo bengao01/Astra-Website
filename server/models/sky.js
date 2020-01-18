@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const ObjectId = mongoose.Schema.Types.ObjectId;
 const SkySchema = new mongoose.Schema({
   name: String,
-  ObjectId: String, // reference googleid
-  sky_id: String,
+  creator: ObjectId,
 });
 
 // compile model from schema
