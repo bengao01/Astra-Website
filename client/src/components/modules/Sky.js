@@ -34,7 +34,7 @@ class Sky extends Component{
                         <Star position={star}/>
                     )}
 
-                    {this.state.constellations.map()}
+                    {/* {this.state.constellations.map()} */}
                     </Layer>
 
                 </Stage>
