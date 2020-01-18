@@ -5,7 +5,6 @@ import { Stage, Layer, Text, Circle } from 'react-konva';
 
 class Star extends Component{
     //prop for star's position
-    //prop function to draw a circle at its position
     constructor(props){
         super(props)
         this.state = {
@@ -23,7 +22,7 @@ class Star extends Component{
     render(){
         return(
             
-                    <Circle x={this.props.position[0]} y={this.props.position[1]} radius={20} fill="white" />
+            <Circle x={this.props.position[0]} y={this.props.position[1]} radius={10} fill="white" />
             
         );
     }

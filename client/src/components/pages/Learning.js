@@ -17,7 +17,7 @@ class Learning extends Component{
     render(){
         return(
             <>
-                <Sky/>
+                <Sky learning={true}/>
             </>
             
         );

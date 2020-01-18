@@ -6,12 +6,14 @@ import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Text } from 'react-konva';
 
+//has a props: learning-if learning mode is on
 class Sky extends Component{
     constructor(props){
         super(props)
         this.state = {
-            constellations : [],
-            stars : [[120, 120], [180, 180]],
+            fixedConstellations : [[[120, 120], [180, 180]], [[180, 180], [350, 350]]],
+            stars : [[120, 120], [180, 180], [350, 350]],
+            newConstellations : []
         }
     }
 
@@ -22,7 +24,9 @@ class Sky extends Component{
     }
 
 
+    addEdge(){
 
+    }
 
     render(){
         return(
@@ -34,7 +38,10 @@ class Sky extends Component{
                         <Star position={star}/>
                     )}
 
-                    {/* {this.state.constellations.map()} */}
+                    {this.props.learning && this.state.fixedConstellations.map((constellation) => 
+                        <Constellation edges={constellation}/>
+                    )}
+
                     </Layer>
 
                 </Stage>
