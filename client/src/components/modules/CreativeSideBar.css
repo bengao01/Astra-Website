@@ -1,8 +1,14 @@
 .CreativeSideBar-body {
     background-color: white;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .CreativeSideBar-constellationTitle {
     padding: 20px;
+}
+.CreativeSideBar-skyTitle {
+    padding: 10px 20px 20px 20px;
 }

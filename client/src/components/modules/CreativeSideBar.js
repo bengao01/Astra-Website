@@ -1,5 +1,7 @@
 import React, {Component} from "react"
 import { render } from 'react-dom';
+import NewConstellationInput from "./NewConstellationInput.js";
+import NewSkyInput from "./NewSkyInput.js";
 
 import "../../utilities.css";
 import "./CreativeSideBar.css";
@@ -22,9 +24,8 @@ class CreativeSideBar extends Component{
         return(
             <>
             <div className="CreativeSideBar-body">
-                <div className="CreativeSideBar-constellationTitle">
-                    Constellation Name:
-                </div>
+                <NewConstellationInput />
+                <NewSkyInput />
             </div>
             </>
         );
