@@ -41,6 +41,19 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+// /user (get)
+// /sky (get, post)
+// /constellation (get, post)
+
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  })
+});
+
+// router.get("/sky", (req, res) => {
+//   Sky.findbyID(req.query.skyid).then((sky))
+// });
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

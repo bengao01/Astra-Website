@@ -26,7 +26,7 @@ class NavBar extends Component {
           <Link to="/creative" className="NavBar-link">
             Creative
           </Link>
-          <Link to=" " className="NavBar-link">
+          <Link to="/learning" className="NavBar-link">
             Learning
           </Link>
           {this.props.userId && (
