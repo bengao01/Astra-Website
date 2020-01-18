@@ -56,7 +56,7 @@ class App extends Component {
           handleLogout={this.handleLogout}
           userId={this.state.userId}
         />
-        <Router>
+        <Router primary={false}>
           <Home
             path="/"
             handleLogin={this.handleLogin}

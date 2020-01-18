@@ -1,4 +1,7 @@
 import React, {Component} from "react"
+import Konva from 'konva';
+import { render } from 'react-dom';
+import { Stage, Layer, Text, Circle } from 'react-konva';
 
 class Star extends Component{
     //prop for star's position
@@ -12,32 +15,16 @@ class Star extends Component{
 
     
     componentDidMount(){
-        console.log(this.props.position[0], this.props.position[1])
-        this.drawStar(this.props.position[0], this.props.position[1])
 
 
-    }
-
-    drawStar = (x,y) => {
-        const canvas = this.props.getCanvas();
-        console.log(canvas);
-        const ctx = canvas.getContext('2d');
-
-        ctx.beginPath();
-        console.log("begun path")
-        ctx.arc(x-5, y, 20, 0, Math.PI * 2, true);
-        ctx.fillStyle = 'red';
-        ctx.fill();
-        ctx.stroke();
     }
 
     
     render(){
         return(
-            <>
-                <span>Here</span>
-
-            </>
+            
+                    <Circle x={this.props.position[0]} y={this.props.position[1]} radius={20} fill="white" />
+            
         );
     }
 }
