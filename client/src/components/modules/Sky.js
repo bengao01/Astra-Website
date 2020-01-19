@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import Constellation from "./Constellation.js"
 import Star from "./Star.js"
 import "./Sky.css"
+import Edge from "./Edge.js"
 import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Text, Group, Circle} from 'react-konva';
@@ -11,9 +12,12 @@ class Sky extends Component{
     constructor(props){
         super(props)
         this.state = {
-            fixedConstellations : [[[120, 120], [180, 180]], [[180, 180], [350, 350]]],
+            fixedConstellations : [[[120, 120, 180, 180], [180, 180, 350, 350]]],
             stars : [[120, 120], [180, 180], [350, 350]],
+            //the set of new constellations made by the user
             newConstellations : [],
+            //the current new constellation that is being made by the user, will later be added to newConstellations
+            newConstellation : [],
             points: [],
             starsize: 10,
             stageScale: 1,
@@ -23,7 +27,6 @@ class Sky extends Component{
             imageX: 0,
             imageY: 0,
             firstclick: false,
-            secondclick: false,
             edge: [],
         }
     }
@@ -32,7 +35,7 @@ class Sky extends Component{
     isOnStar = (x, y) => {
         for(let i=0; i < this.state.stars.length; i++){
             if (Math.abs(x-this.state.stars[i][0]) <= this.state.starsize && Math.abs(y - this.state.stars[i][1]) <= this.state.starsize){
-                console.log("Onstar works")
+                console.log("is onStar")
 
                 return true;
             }
@@ -60,9 +63,9 @@ class Sky extends Component{
           stageY:
             -(mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale
         });
-      };      
+    };      
 
-      handleClick = e => {
+    handleClick = e => {
         const stage = e.target.getStage();
         const pos = stage.getPointerPosition();
     
@@ -74,43 +77,61 @@ class Sky extends Component{
     
         const pointPos = invertedTransform.point(pos);
 
-        if (this.isOnStar(pos.x,pos.y)){
+        if (this.isOnStar(pos.x,pos.y) && this.state.firstclick == false){
             this.setState({
                 firstclick: true,
-                edge: [[pos.x, pos.y]],
+                edge: [pos.x, pos.y],
             })
+        }    
+        else if(this.isOnStar(pos.x,pos.y) && this.state.firstclick){
+            let newEdge = this.state.edge.concat([pos.x, pos.y]);
+            if(this.state.newConstellation.length == 0){
+                this.setState({
+                    newConstellation : [newEdge],
+                    edge: [],
+                    firstclick : false,
+                })
+            }
+            else{
+                console.log(this.state.newConstellation)
+                this.setState({
+                    //newConstellation : newConstellation.concat([newEdge]),
+                    edge: [],
+                    firstclick : false,
+                })
+            }
+          
+          console.log(this.state.newConstellation);
         }
-    
-        if(this.state.firstclick){
-            let temp = this.state.edge.concat([pos.x, pos.y]);
-          this.setState({
-            secondclick: true,
-            constellations: constellations.concat(temp),
-            edge: [],
-          })
-        }
-
-        if(this.state.secondclick){
+        else if(this.state.firstclick && !this.isOnStar(pos.x,pos.y)){
             this.setState({
                 firstclick: false,
-                secondclick: false,
+                edge : [],
             })
         }
+        else{
+            this.setState({
+                firstclick: false,
+                edge : [],
+            })
+        }
+
+        console.log(this.state.firstclick)
     
         this.setState({
           points: this.state.points.concat([pointPos]),
         });
 
 
-      };
+    };
 
 
-      handleImageDragEnd = e => {
+    handleImageDragEnd = e => {
         this.setState({
-          imageX: e.target.x(),
-          imageY: e.target.y()
+            imageX: e.target.x(),
+            imageY: e.target.y()
         });
-      };
+    };
 
 
     
@@ -139,14 +160,14 @@ class Sky extends Component{
                     >
                         <Layer
                             draggable
-                            x={this.state.imageX}
-                            y={this.state.imageY}
+                            x={this.state.stageX}
+                            y={this.state.stageY}
                             ref={node => {
-                            this.imageNode = node;
+                            this.stageNode = node;
                             }}
                             onDragEnd={this.handleImageDragEnd}
                         >
-                        <Text text="CONNECT THE DOTS" fill="white"/>
+
                         {this.state.stars.map((star) => 
                             <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
                         )}
@@ -155,6 +176,11 @@ class Sky extends Component{
                             <Constellation edges={constellation}/>
                         )}
 
+                        {!this.props.learning && this.state.newConstellation && this.state.newConstellation.map((edges) =>         
+                            //console.log(edges)
+                            <Edge position={edges}/>
+                        )}
+                        
                         </Layer>
                         <Layer>
                             <Group
@@ -170,7 +196,7 @@ class Sky extends Component{
 
                     </Stage>
                 </div>
-              </div>            
+            </div>
         );
     
     }

@@ -21,7 +21,7 @@ class Constellation extends Component{
         return(
             <>
                 {this.props.edges.map((edges) =>
-                    <Edge first={this.props.edges[0]} second={this.props.edges[1]}/>
+                    <Edge position={edges}/>
                 )}
             </>
             

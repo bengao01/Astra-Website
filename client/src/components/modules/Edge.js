@@ -3,7 +3,7 @@ import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Text, Circle, Line} from 'react-konva';
 
-//props: first, second : first and second coordinates for the connected stars
+//props: postition array with the 4 coordinates of the two stars
 class Edge extends Component{
     constructor(props){
         super(props)
@@ -19,7 +19,7 @@ class Edge extends Component{
     render(){
         return(
             <Line
-                points={[this.props.first[0], this.props.first[1], this.props.second[0], this.props.second[1]]}
+                points={[this.props.position[0], this.props.position[1], this.props.position[2], this.props.position[3]]}
                 stroke='white'
             />
         );
