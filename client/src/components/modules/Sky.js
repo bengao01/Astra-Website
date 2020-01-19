@@ -95,7 +95,7 @@ class Sky extends Component{
             else{
                 console.log(this.state.newConstellation)
                 this.setState({
-                    //newConstellation : newConstellation.concat([newEdge]),
+                    newConstellation : this.state.newConstellation.concat([newEdge]),
                     edge: [],
                     firstclick : false,
                 })
