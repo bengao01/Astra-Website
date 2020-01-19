@@ -12,8 +12,8 @@ class Sky extends Component{
     constructor(props){
         super(props)
         this.state = {
-            fixedConstellations : [[[120, 120, 180, 180], [180, 180, 350, 350]]],
-            stars : [[120, 120], [180, 180], [350, 350]],
+            fixedConstellations : [[[120, 120, 220, 140], [220, 140, 350, 350], [280, 240, 350, 350]]],
+            stars : [[120, 120], [220, 140], [280, 240], [350, 350]],
             //the set of new constellations made by the user
             newConstellations : [],
             //the current new constellation that is being made by the user, will later be added to newConstellations
@@ -37,7 +37,7 @@ class Sky extends Component{
             if (Math.abs(x-this.state.stars[i][0]) <= this.state.starsize && Math.abs(y - this.state.stars[i][1]) <= this.state.starsize){
                 console.log("is onStar")
 
-                return true;
+                return [this.state.stars[i][0], this.state.stars[i][1]];
             }
         }
         return false;
@@ -77,14 +77,15 @@ class Sky extends Component{
     
         const pointPos = invertedTransform.point(pos);
 
-        if (this.isOnStar(pos.x,pos.y) && this.state.firstclick == false){
+        let starCoord = this.isOnStar(pos.x, pos.y);
+        if (starCoord && this.state.firstclick == false){
             this.setState({
                 firstclick: true,
-                edge: [pos.x, pos.y],
+                edge: [starCoord[0], starCoord[1]],
             })
         }    
-        else if(this.isOnStar(pos.x,pos.y) && this.state.firstclick){
-            let newEdge = this.state.edge.concat([pos.x, pos.y]);
+        else if(starCoord && this.state.firstclick){
+            let newEdge = this.state.edge.concat([starCoord[0], starCoord[1]]);
             if(this.state.newConstellation.length == 0){
                 this.setState({
                     newConstellation : [newEdge],
