@@ -76,7 +76,10 @@ class Creative extends Component{
                         {console.log(this.state.skyId)}
                     </div>
                     <div className="Creative-sky">
-                        <CreativeSky newConstellations={this.state.newConstellations} newConstellation={this.state.newConstellation} updateNewConstellation={this.updateNewConstellation}/>
+                        <CreativeSky newConstellations={this.state.newConstellations} 
+                                     newConstellation={this.state.newConstellation} 
+                                     updateNewConstellation={this.updateNewConstellation}
+                        />
                     </div>
                 </div>
             </>

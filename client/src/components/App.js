@@ -5,7 +5,7 @@ import Home from "./pages/Home.js";
 import Creative from "./pages/Creative.js"
 import Learning from "./pages/Learning.js"
 import NavBar from "./modules/NavBar.js"
-
+import Profile from "./pages/Profile.js"
 
 import "../utilities.css";
 
@@ -22,6 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       userId: undefined,
+      userName : undefined,
     };
   }
 
@@ -29,7 +30,10 @@ class App extends Component {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
-        this.setState({ userId: user._id });
+        this.setState({ 
+          userId: user._id,
+          userName : user.name,
+        });
       }
     });
   }
@@ -38,7 +42,10 @@ class App extends Component {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
-      this.setState({ userId: user._id });
+      this.setState({ 
+          userId: user._id,
+          userName : user.name,
+      });
       post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -69,6 +76,10 @@ class App extends Component {
           />
           <Learning
             path="/learning"
+          />
+          <Profile
+            path={`/profile/${this.state.userId}`}
+            name={this.state.userName}
           />
           <NotFound default />
         </Router>
