@@ -85,23 +85,24 @@ class CreativeSky extends Component{
         }    
         else if(starCoord && this.state.firstclick){
             let newEdge = this.state.edge.concat([starCoord[0], starCoord[1]]);
-            if(this.state.newConstellation.length == 0){
+            if(this.props.newConstellation.length == 0){
                 this.setState({
-                    newConstellation : [newEdge],
                     edge: [],
                     firstclick : false,
                 })
+                this.props.updateNewConstellation(newEdge);
+
             }
             else{
-                console.log(this.state.newConstellation)
+                console.log(this.props.newConstellation)
                 this.setState({
-                    newConstellation : this.state.newConstellation.concat([newEdge]),
                     edge: [],
                     firstclick : false,
                 })
+                this.props.updateNewConstellation(newEdge);
             }
           
-          console.log(this.state.newConstellation);
+          console.log(this.props.newConstellation);
         }
         else if(this.state.firstclick && !this.isOnStar(pos.x,pos.y)){
             this.setState({
@@ -172,7 +173,7 @@ class CreativeSky extends Component{
                             <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
                         )}
 
-                        {this.state.newConstellation && this.state.newConstellation.map((edges) =>         
+                        {this.props.newConstellation && this.props.newConstellation.map((edges) =>         
                             <Edge position={edges}/>
                         )}
                         

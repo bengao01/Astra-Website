@@ -8,6 +8,9 @@ import "./Creative.css";
 class Creative extends Component{
     constructor(props){
         super(props)
+        this.state = {
+            newConstellation : [],
+        }
         
     }
 
@@ -16,16 +19,22 @@ class Creative extends Component{
         
     }
 
+    updateNewConstellation = (edge) => {
+        this.setState({
+            newConstellation : this.state.newConstellation.concat([edge]),
+        });
+    }
+
 
     render(){
         return(
             <>
                 <div className="u-flexRow Creative-body">
                     <div className="Creative-creativeSideBar">
-                        <CreativeSideBar/>
+                        <CreativeSideBar newConstellation={this.state.newConstellation}/>
                     </div>
                     <div className="Creative-sky">
-                        <CreativeSky/>
+                        <CreativeSky newConstellation={this.state.newConstellation} updateNewConstellation={this.updateNewConstellation}/>
                     </div>
                 </div>
             </>
