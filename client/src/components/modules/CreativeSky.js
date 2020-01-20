@@ -13,10 +13,6 @@ class CreativeSky extends Component{
         super(props)
         this.state = {
             stars : [[120, 120], [220, 140], [280, 240], [350, 350]],
-            //the set of new constellations made by the user
-            newConstellations : [],
-            //the current new constellation that is being made by the user, will later be added to newConstellations
-            newConstellation : [],
             points: [],
             starsize: 10,
             stageScale: 1,
@@ -169,8 +165,13 @@ class CreativeSky extends Component{
                             onDragEnd={this.handleImageDragEnd}
                         >
 
+
                         {this.state.stars.map((star) => 
                             <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
+                        )}
+
+                        {this.props.newConstellations && this.props.newConstellations.map((edges) =>         
+                            <Edge position={edges}/>
                         )}
 
                         {this.props.newConstellation && this.props.newConstellation.map((edges) =>         

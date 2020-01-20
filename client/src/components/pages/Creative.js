@@ -9,6 +9,9 @@ class Creative extends Component{
     constructor(props){
         super(props)
         this.state = {
+            //the set of saved constellations in the current sky
+            newConstellations : [],
+            //the current constellation the user is making
             newConstellation : [],
         }
         
@@ -28,6 +31,7 @@ class Creative extends Component{
 
     resetNewConstellation = () => {
         this.setState({
+            newConstellations : this.state.newConstellations.concat(this.state.newConstellation),
             newConstellation: [],
         });
         console.log("reset new constellation");
@@ -42,7 +46,7 @@ class Creative extends Component{
                         <CreativeSideBar newConstellation={this.state.newConstellation} resetNewConstellation={this.resetNewConstellation}/>
                     </div>
                     <div className="Creative-sky">
-                        <CreativeSky newConstellation={this.state.newConstellation} updateNewConstellation={this.updateNewConstellation}/>
+                        <CreativeSky newConstellations={this.state.newConstellations} newConstellation={this.state.newConstellation} updateNewConstellation={this.updateNewConstellation}/>
                     </div>
                 </div>
             </>
