@@ -1,0 +1,18 @@
+.ProfileSideBar-body {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfileSideBar-content{
+    display : flex;
+    padding: 10px 10px 10px 10px;
+}
+
+.ProfileSideBar-constellationTitle {
+    padding: 20px;
+}
+.ProfileSideBar-skyTitle {
+    padding: 10px 20px 20px 20px;
+}

@@ -43,10 +43,15 @@ class Creative extends Component{
             <>
                 <div className="u-flexRow Creative-body">
                     <div className="Creative-creativeSideBar">
-                        <CreativeSideBar newConstellation={this.state.newConstellation} resetNewConstellation={this.resetNewConstellation}/>
+                        <CreativeSideBar newConstellation={this.state.newConstellation} 
+                                         resetNewConstellation={this.resetNewConstellation}
+                        />
                     </div>
                     <div className="Creative-sky">
-                        <CreativeSky newConstellations={this.state.newConstellations} newConstellation={this.state.newConstellation} updateNewConstellation={this.updateNewConstellation}/>
+                        <CreativeSky newConstellations={this.state.newConstellations} 
+                                     newConstellation={this.state.newConstellation} 
+                                     updateNewConstellation={this.updateNewConstellation}
+                        />
                     </div>
                 </div>
             </>
