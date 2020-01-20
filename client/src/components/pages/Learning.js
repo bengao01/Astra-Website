@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import Sky from "../modules/Sky.js"
+import LearningSky from "../modules/LearningSky.js"
 
 
 class Learning extends Component{
@@ -17,7 +17,7 @@ class Learning extends Component{
     render(){
         return(
             <>
-                <Sky learning={true}/>
+                <LearningSky learning={true}/>
             </>
             
         );

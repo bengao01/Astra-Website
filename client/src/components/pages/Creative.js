@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import Sky from "../modules/Sky.js"
+import CreativeSky from "../modules/CreativeSky.js"
 import CreativeSideBar from "../modules/CreativeSideBar.js"
 
 import "../../utilities.css";
@@ -25,7 +25,7 @@ class Creative extends Component{
                         <CreativeSideBar/>
                     </div>
                     <div className="Creative-sky">
-                        <Sky/>
+                        <CreativeSky/>
                     </div>
                 </div>
             </>
