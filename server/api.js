@@ -11,6 +11,8 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Sky = require("./models/sky");
+const Constellation = require("./models/constellation");
 
 // import authentication library
 const auth = require("./auth");
@@ -59,10 +61,11 @@ router.get("/sky", (req, res) => {
   });
 });
 
-router.post("/sky", (req, res) => {
+router.post("/sky", auth.ensureLoggedIn, (req, res) => {
   const newSky = new Sky({
     name: req.body.name,
     creator: req.user._id,
+    sky_id: req.body.sky_id,
   });
 
   newSky.save().then((sky) => res.send(sky));
@@ -77,12 +80,14 @@ router.get("/constellation", (req, res) => {
   });
 });
 
-router.post("/constellation", (req, res) => {
+router.post("/constellation", auth.ensureLoggedIn, (req, res) => {
   const newConstellation = new Constellation({
-    name: req.body.name,
     creator: req.user._id,
+    name: req.body.name,
+    // sky_id: req.body.sky_id,
+    edges: req.body.newConstellation,
   });
-
+  console.log("post request");
   newConstellation.save().then((constellation) => res.send(constellation));
 });
 

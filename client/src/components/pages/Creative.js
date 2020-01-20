@@ -20,7 +20,7 @@ class Creative extends Component{
     render(){
         return(
             <>
-                <div className="u-flexRow">
+                <div className="u-flexRow Creative-body">
                     <div className="Creative-creativeSideBar">
                         <CreativeSideBar/>
                     </div>
