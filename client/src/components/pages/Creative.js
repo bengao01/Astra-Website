@@ -23,6 +23,14 @@ class Creative extends Component{
         this.setState({
             newConstellation : this.state.newConstellation.concat([edge]),
         });
+        console.log("update new constellation");
+    }
+
+    resetNewConstellation = () => {
+        this.setState({
+            newConstellation: [],
+        });
+        console.log("reset new constellation");
     }
 
 
@@ -31,7 +39,7 @@ class Creative extends Component{
             <>
                 <div className="u-flexRow Creative-body">
                     <div className="Creative-creativeSideBar">
-                        <CreativeSideBar newConstellation={this.state.newConstellation}/>
+                        <CreativeSideBar newConstellation={this.state.newConstellation} resetNewConstellation={this.resetNewConstellation}/>
                     </div>
                     <div className="Creative-sky">
                         <CreativeSky newConstellation={this.state.newConstellation} updateNewConstellation={this.updateNewConstellation}/>
