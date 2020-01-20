@@ -38,7 +38,8 @@ class NewConstellationInput extends Component{
         // const body = { sky_id: this.props.sky_id, name: constellationName };
         console.log("add constellation");
         // const body = {name: value};
-        const body = {name: value, newConstellation: this.props.newConstellation};
+        console.log(this.props.skyId)
+        const body = {name: value, newConstellation: this.props.newConstellation, sky_id: this.props.skyId};
 
         post("/api/constellation", body).then(() => {
             this.props.resetNewConstellation()
