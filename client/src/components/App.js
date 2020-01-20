@@ -77,7 +77,6 @@ class App extends Component {
           <Learning
             path="/learning"
           />
-          {console.log(this.state.userName)}
           <Profile
             path={`/profile/${this.state.userId}`}
             name={this.state.userName}
