@@ -25,8 +25,9 @@ class NewSkyInput extends Component{
     // Called when the user hits "Save" for a new sky
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit && this.props.onSubmit(this.state.value);
-        this.addSky(this.state.value);
+        this.props.resetNewConstellations();
+        // this.props.onSubmit && this.props.onSubmit(this.state.value);
+        post("/api/updateSky", {_id : this.props.skyId, name : this.state.value});
         this.setState({
             value: "",
         });
@@ -35,9 +36,7 @@ class NewSkyInput extends Component{
 
     addSky = (value) => {
         console.log("add sky");
-        const body = {name: value};
-
-        post("/api/sky", body);
+        //this.props.changeSkyName(value, this.props.sky_id);
     };
 
     componentDidMount(){

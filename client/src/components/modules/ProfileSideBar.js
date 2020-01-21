@@ -23,9 +23,7 @@ class ProfileSideBar extends Component{
             <>
             <div className="ProfileSideBar-body">
                 <div className="ProfileSideBar-content" >
-                    <div>Welcome to your profile!</div>
-                    <p>{`Welcome ${this.props.name}`}</p>
-
+                    <div>{`Welcome to your profile ${this.props.name}!`}</div>
                 </div>
             </div>
             </>

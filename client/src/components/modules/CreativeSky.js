@@ -147,7 +147,8 @@ class CreativeSky extends Component{
             <div className="CreativeSky-body">
                 <div ref={stageContainer => (this.stageContainer = stageContainer)}>
                     <Stage 
-                    width={window.innerWidth} height={window.innerHeight}
+                    width={window.innerWidth} 
+                    height={window.innerHeight}
                     onWheel={this.handleWheel}
                     onClick={this.handleClick}
                     scaleX={this.state.stageScale}
@@ -157,10 +158,10 @@ class CreativeSky extends Component{
                     >
                         <Layer
                             draggable
-                            x={this.state.stageX}
-                            y={this.state.stageY}
+                            x={this.state.imageX}
+                            y={this.state.imageY}
                             ref={node => {
-                            this.stageNode = node;
+                            this.imageNode = node;
                             }}
                             onDragEnd={this.handleImageDragEnd}
                         >

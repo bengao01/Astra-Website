@@ -2,7 +2,9 @@
     background-color: white;
     height: 100vh;
     display: flex;
+    min-width: 250px;
     flex-direction: column;
+    width : 100%;
 }
 
 .LearningSideBar-content{

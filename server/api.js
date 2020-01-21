@@ -73,6 +73,17 @@ router.post("/sky", auth.ensureLoggedIn, (req, res) => {
   newSky.save().then((sky) => res.send(sky));
 });
 
+router.post("/updateSky", auth.ensureLoggedIn, (req, res) => {
+  Sky.findOne({
+    _id : req.body._id,
+  })
+  .then((sky) => {
+    sky.name = req.body.name
+    sky.save().then((sky) => res.send(sky));
+  });
+
+});
+
 router.get("/constellation", (req, res) => {
   Constellation.find({
     creator: req.user._id,
@@ -83,6 +94,7 @@ router.get("/constellation", (req, res) => {
 });
 
 router.post("/constellation", auth.ensureLoggedIn, (req, res) => {
+  console.log(req.body.sky_id);
   const newConstellation = new Constellation({
     creator: req.user._id,
     name: req.body.name,

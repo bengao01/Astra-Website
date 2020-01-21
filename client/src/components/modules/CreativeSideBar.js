@@ -24,9 +24,15 @@ class CreativeSideBar extends Component{
     render(){
         return(
             <div className="CreativeSideBar-body">
-                <NewConstellationInput newConstellation={this.props.newConstellation} resetNewConstellation={this.props.resetNewConstellation} skyId={this.props.skyId}/>
+                <NewConstellationInput 
+                    newConstellation={this.props.newConstellation} 
+                    resetNewConstellation={this.props.resetNewConstellation} 
+                    skyId={this.props.skyId}/>
                 {console.log(this.props.skyId)}
-                <NewSkyInput />
+                <NewSkyInput 
+                    resetNewConstellations={this.props.resetNewConstellations} 
+                    skyId={this.props.skyId}
+                />
                 <ConstellationsBlock />
             </div>
         );

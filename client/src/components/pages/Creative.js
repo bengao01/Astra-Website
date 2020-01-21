@@ -35,16 +35,14 @@ class Creative extends Component{
             console.log(this.state.skyId)
         })
         .catch((error) => {
-            post("/api/sky", {name: ""})
-            console.log("post sky")
-                .then((sky) => {
-                    get("/api/sky", { name: "", creator: sky.creator})
-                console.log("get sky 2")
-                        .then((sky) => {
-                            this.setState({
-                                skyId: sky._id,
-                            })
+            post("/api/sky", {name: ""}) 
+            .then((sky) => {
+                get("/api/sky", { name: "", creator: sky.creator})
+                    .then((sky) => {
+                        this.setState({
+                            skyId: sky._id,
                         })
+                    })
                 })
             });
     }
@@ -66,19 +64,34 @@ class Creative extends Component{
         console.log("reset new constellation");
     }
 
+    resetNewConstellations = () => {
+        this.setState({
+            newConstellations : [],
+            newConstellation: [],
+        });
+    }
+
 
     render(){
+        if(!this.state.skyId){
+            return (<div>loading</div>)
+        }
         return(
             <>
                 <div className="u-flexRow Creative-body">
                     <div className="Creative-creativeSideBar">
-                        <CreativeSideBar newConstellation={this.state.newConstellation} resetNewConstellation={this.resetNewConstellation} skyId={this.state.skyId}/>
+                        <CreativeSideBar 
+                            newConstellation={this.state.newConstellation} 
+                            resetNewConstellation={this.resetNewConstellation}
+                            resetNewConstellations={this.resetNewConstellations} 
+                            skyId={this.state.skyId}/>
                         {console.log(this.state.skyId)}
                     </div>
                     <div className="Creative-sky">
-                        <CreativeSky newConstellations={this.state.newConstellations} 
-                                     newConstellation={this.state.newConstellation} 
-                                     updateNewConstellation={this.updateNewConstellation}
+                        <CreativeSky 
+                            newConstellations={this.state.newConstellations} 
+                            newConstellation={this.state.newConstellation} 
+                            updateNewConstellation={this.updateNewConstellation}
                         />
                     </div>
                 </div>
