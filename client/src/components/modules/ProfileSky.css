@@ -1,0 +1,6 @@
+.ProfileSky-body{
+    display : flex;
+    flex-direction: row;
+    padding : 10px 10px;
+    color: aliceblue;
+}

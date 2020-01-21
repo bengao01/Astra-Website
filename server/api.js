@@ -63,6 +63,15 @@ router.get("/sky", (req, res) => {
   });
 });
 
+router.get("/allSkies", (req, res) => {
+  Sky.find({
+    creator : req.user._id,
+  }).then((allSkies) => {
+    res.send(allSkies);
+    console.log(allSkies);
+  });
+});
+
 router.post("/sky", auth.ensureLoggedIn, (req, res) => {
   const newSky = new Sky({
     name: req.body.name,
