@@ -71,7 +71,7 @@ class CreativeSky extends Component{
         ).invert();
     
         const pointPos = invertedTransform.point(pos);
-
+        console.log(pos)
         let starCoord = this.isOnStar(pos.x, pos.y);
         if (starCoord && this.state.firstclick == false){
             this.setState({
