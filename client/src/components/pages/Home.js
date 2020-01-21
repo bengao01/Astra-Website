@@ -45,24 +45,29 @@ class Home extends Component {
         {/* <Constellation></Constellation> */}
         <section>
           <div className="main">
-          <div className="title">
-            ASTRA
-          </div>
-          <div className="quote">
-            reach for the stars
-          </div>
-          <div className="constellation-image">
-          </div>
+            <div className="title">
+              ASTRA
+            </div>
+            <div className="quote">
+              reach for the stars
+            </div>
+            <img src="constellation.png" className="constellation-image"/>
           </div>
         </section>
         <section>  
           <div className="instructions-block">
-          <div className="instructions-title">
-            Instructions
-          </div>
-          <div className="instructions">
-            This is how you use Astra!
-          </div>
+            <div className="instructions-title">
+              Instructions
+            </div>
+
+            <div className="instructions">
+              Explore learning mode, where you can learn the names of all the constellations! Zooming and panning is enabled in learning mode; use the scroll wheel to zoom and mouse down and drag on a star to pan around.
+            </div>
+
+            <div className="instructions">
+              Login to access creative mode and your profile, where you can create new constellations and skies and save them to revisit later!
+              There is currently no zooming or panning in creative mode, but we are working hard to implement that feature.
+            </div>
           </div>
         </section>
       </>

@@ -38,13 +38,17 @@ section {
     color: var(--black);
     font-size: 20px;
     display: flex;
+    flex-wrap : wrap;
     justify-content: center; 
-    padding: 5px;
+    padding: 10px;
+    margin : 10px 20px
 }
 
 .constellation-image {
-    border-radius: 50%;
-    background-position-y: center;
-    background-position-x: center;
-    background-image: url("../../public/constellation.png");
+    border-radius: 50%;   
+    width : 350px;
+    height : auto;
+    margin : 0 auto;
+    display: block;
+    padding : 20px;
 }

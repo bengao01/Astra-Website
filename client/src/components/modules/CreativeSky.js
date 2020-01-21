@@ -130,6 +130,12 @@ class CreativeSky extends Component{
         });
     };
 
+    handleStageDragEnd = e => {
+        this.setState({
+            imageX : e.target.x(),
+            imageY: e.target.y()
+        });
+    };
 
     
     componentDidMount(){
@@ -147,6 +153,13 @@ class CreativeSky extends Component{
             <div className="CreativeSky-body">
                 <div ref={stageContainer => (this.stageContainer = stageContainer)}>
                     <Stage 
+                    draggable
+                    x={this.state.imageX}
+                    y={this.state.imageY}
+                    ref={node => {
+                    this.stageeNode = node;
+                    }}
+                    onDragEnd={this.handleImageDragEnd}
                     width={window.innerWidth} 
                     height={window.innerHeight}
                     onWheel={this.handleWheel}
