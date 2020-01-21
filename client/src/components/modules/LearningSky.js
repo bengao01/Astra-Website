@@ -6,6 +6,8 @@ import Edge from "./Edge.js"
 import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Text, Group, Circle} from 'react-konva';
+import { constelledges } from "./constellationedges.js";
+import { starlocs } from "./starlocations.js";
 
 //has a props: learning-if learning mode is on
 class LearningSky extends Component{
@@ -14,12 +16,8 @@ class LearningSky extends Component{
         this.state = {
             fixedConstellations : [[[120, 120, 220, 140], [220, 140, 350, 350], [280, 240, 350, 350]]],
             stars : [[120, 120], [220, 140], [280, 240], [350, 350]],
-            //the set of new constellations made by the user
-            newConstellations : [],
-            //the current new constellation that is being made by the user, will later be added to newConstellations
-            newConstellation : [],
             points: [],
-            starsize: 10,
+            starsize: 3,
             stageScale: 1,
             stageWidth: 0,
             stageX: 0,
@@ -30,6 +28,21 @@ class LearningSky extends Component{
             edge: [],
         }
     }
+
+    processStarLoc = () => {
+        this.setState({
+            stars: starlocs
+        })
+
+    }
+
+    processConstEdge = () => {
+        this.setState({
+            fixedConstellations: Object.values(constelledges)
+        })
+
+    }
+
 
     
     isOnStar = (x, y) => {
@@ -137,8 +150,8 @@ class LearningSky extends Component{
 
     
     componentDidMount(){
-    
-
+        this.processStarLoc();
+        this.processConstEdge();
     }
 
 
