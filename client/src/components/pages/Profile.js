@@ -12,25 +12,25 @@ class Profile extends Component{
     constructor(props){
         super(props)
         this.state = {
-            skyObjs : [],
+            // skyObjs : [],
         }
     }
 
 
     
     componentDidMount(){
-        get("/api/allSkies").then((allSkies) => {
-            this.setState({
-                skyObjs : allSkies,
-            });
-        });
+        // get("/api/allSkies").then((allSkies) => {
+        //     this.setState({
+        //         skyObjs : allSkies,
+        //     });
+        // });
+        this.props.retrieveAllSkies;
     }
 
-
     render(){
-        if(!this.state.skyObjs){
-            return(<div>LOADING!</div>)
-        }
+        // if(!this.state.skyObjs){
+        //     return(<div>LOADING!</div>)
+        // }
 
         return(
             <>
@@ -40,10 +40,9 @@ class Profile extends Component{
                     </div>
                     
                     <div className="Profile-ProfileSky">
-                        {this.state.skyObjs.map((sky) => 
-                            <ProfileSkyBox skyId={sky._id} name={sky.name}/>
+                        {this.props.skyObjs.map((sky) => 
+                            (<ProfileSkyBox skyId={sky._id} name={sky.name}/>)
                         )}
-
                     </div>
                 </div>
                 

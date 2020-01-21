@@ -6,6 +6,7 @@ import Creative from "./pages/Creative.js"
 import Learning from "./pages/Learning.js"
 import NavBar from "./modules/NavBar.js"
 import Profile from "./pages/Profile.js"
+import ProfileSky from "./pages/ProfileSky.js"
 
 import "../utilities.css";
 
@@ -23,6 +24,7 @@ class App extends Component {
     this.state = {
       userId: undefined,
       userName : undefined,
+      skyObjs: [],
     };
   }
 
@@ -36,6 +38,22 @@ class App extends Component {
         });
       }
     });
+  //   .then(() => { 
+  //     console.log("getting all skies")
+  //     get("/api/allSkies").then((allSkies) => {
+  //     this.setState({
+  //         skyObjs : allSkies,
+  //     });
+  //   });
+  //   });
+  }
+
+  retrieveAllSkies = () => {
+    get("/api/allSkies").then((allSkies) => {
+      this.setState({
+          skyObjs : allSkies,
+      });
+    });
   }
 
   handleLogin = (res) => {
@@ -47,6 +65,12 @@ class App extends Component {
           userName : user.name,
       });
       post("/api/initsocket", { socketid: socket.id });
+      this.retrieveAllSkies();
+      // get("/api/allSkies").then((allSkies) => {
+      //   this.setState({
+      //       skyObjs : allSkies,
+      //   });
+      // });
     });
   };
 
@@ -56,6 +80,9 @@ class App extends Component {
   };
 
   render() {
+    if(!this.state.skyObjs){
+      return(<div>LOADING!</div>)
+    }
 
     return (
       <>
@@ -80,7 +107,17 @@ class App extends Component {
           <Profile
             path={`/profile/${this.state.userId}`}
             name={this.state.userName}
+            skyObjs={this.state.skyObjs}
+            retrieveAllSkies={this.retrieveAllSkies()}
           />
+          {this.state.skyObjs.map((sky) => 
+              (<ProfileSky
+                path={`/profilesky/${sky._id}`}
+                name={this.state.userName}
+                skyObjs={this.state.skyObjs}
+              />)
+          )}
+
           <NotFound default />
         </Router>
       </>
