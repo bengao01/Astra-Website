@@ -6,15 +6,16 @@ import Edge from "./Edge.js"
 import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Text, Group, Circle} from 'react-konva';
+import { starlocs } from "./starlocations.js";
 
 //has a props: learning-if learning mode is on
 class CreativeSky extends Component{
     constructor(props){
         super(props)
         this.state = {
-            stars : [[120, 120], [220, 140], [280, 240], [350, 350]],
+            stars : [],
             points: [],
-            starsize: 10,
+            starsize: 3,
             stageScale: 1,
             stageWidth: 0,
             stageX: 0,
@@ -26,6 +27,12 @@ class CreativeSky extends Component{
         }
     }
 
+    processStarLoc = () => {
+        this.setState({
+            stars: starlocs
+        })
+
+    }
     
     isOnStar = (x, y) => {
         for(let i=0; i < this.state.stars.length; i++){
@@ -139,7 +146,7 @@ class CreativeSky extends Component{
 
     
     componentDidMount(){
-    
+        this.processStarLoc();
 
     }
 

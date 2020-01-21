@@ -16,7 +16,7 @@ class LearningSky extends Component{
         this.state = {
             stars : [],
             points: [],
-            starsize: 3,
+            starsize: 4,
             stageScale: 1,
             stageWidth: 0,
             stageX: 0,
@@ -52,6 +52,12 @@ class LearningSky extends Component{
             }
         }
         return false;
+    }
+
+    isOnConstellation = (x, y) => {
+        if(isOnStar){
+
+        }
     }
 
     static defaultProps = {};
