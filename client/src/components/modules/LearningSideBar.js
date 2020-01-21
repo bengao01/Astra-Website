@@ -23,7 +23,11 @@ class LearningSideBar extends Component{
             <>
             <div className="LearningSideBar-body">
                 <div className="LearningSideBar-content" >
-                    <div>Welcome to Learning Mode!</div>
+                    <div className="LearningSideBar-constellationName">
+                        {this.props.constellationNames.map((name) =>
+                            <div>{name}</div>
+                        )}
+                    </div>                 
                 </div>
             </div>
             </>

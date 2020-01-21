@@ -14,7 +14,6 @@ class LearningSky extends Component{
     constructor(props){
         super(props)
         this.state = {
-            fixedConstellations : [],
             stars : [],
             points: [],
             starsize: 3,
@@ -36,12 +35,12 @@ class LearningSky extends Component{
 
     }
 
-    processConstEdge = () => {
-        this.setState({
-            fixedConstellations: Object.values(constelledges)
-        })
+    // processConstEdge = () => {
+    //     this.setState({
+    //         fixedConstellations: Object.values(constelledges)
+    //     })
 
-    }
+    // }
 
     
     isOnStar = (x, y) => {
@@ -155,7 +154,7 @@ class LearningSky extends Component{
     
     componentDidMount(){
         this.processStarLoc();
-        this.processConstEdge();
+        //this.processConstEdge();
     }
 
 
@@ -197,7 +196,7 @@ class LearningSky extends Component{
                             <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
                         )}
 
-                        {this.props.learning && this.state.fixedConstellations.map((constellation) => 
+                        {this.props.learning && this.props.fixedConstellations.map((constellation) => 
                             <Constellation edges={constellation}/>
                         )}
                         
