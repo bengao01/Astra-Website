@@ -61,12 +61,13 @@ class Home extends Component {
             </div>
 
             <div className="instructions">
-              Explore learning mode, where you can learn the names of all the constellations! Zooming and panning is enabled in learning mode; use the scroll wheel to zoom and mouse down and drag on a star to pan around.
+              Explore learning mode, where you can learn the names of all the constellations! Zooming and panning is enabled in learning mode; use the scroll wheel to zoom and mouse down to pan.
             </div>
 
             <div className="instructions">
               Login to access creative mode and your profile, where you can create new constellations and skies and save them to revisit later!
               There is currently no zooming or panning in creative mode, but we are working hard to implement that feature.
+              (You can, but it breaks everything)
             </div>
           </div>
         </section>

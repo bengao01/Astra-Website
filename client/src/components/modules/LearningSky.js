@@ -146,7 +146,12 @@ class LearningSky extends Component{
         });
     };
 
-
+    handleStageDragEnd = e => {
+        this.setState({
+            stageX : e.target.x(),
+            stageY: e.target.y()
+        });
+    };
     
     componentDidMount(){
         this.processStarLoc();
@@ -163,6 +168,13 @@ class LearningSky extends Component{
             <div className="LearningSky-body">
                 <div ref={stageContainer => (this.stageContainer = stageContainer)}>
                     <Stage 
+                    draggable
+                    x={this.state.stageX}
+                    y={this.state.stageY}
+                    ref={node => {
+                        this.stageNode = node;
+                    }}
+                    onDragEnd={this.handleStageDragEnd}
                     width={window.innerWidth} height={window.innerHeight}
                     onWheel={this.handleWheel}
                     onClick={this.handleClick}
@@ -173,10 +185,10 @@ class LearningSky extends Component{
                     >
                         <Layer
                             draggable
-                            x={this.state.stageX}
-                            y={this.state.stageY}
+                            x={this.state.imageX}
+                            y={this.state.imageY}
                             ref={node => {
-                            this.stageNode = node;
+                            this.imageNode = node;
                             }}
                             onDragEnd={this.handleImageDragEnd}
                         >
