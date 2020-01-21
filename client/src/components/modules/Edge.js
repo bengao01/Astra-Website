@@ -21,7 +21,7 @@ class Edge extends Component{
             <Line
                 points={[this.props.position[0], this.props.position[1], this.props.position[2], this.props.position[3]]}
                 stroke='white'
-                strokeWidth='1'
+                strokeWidth='.7'
             />
         );
     

@@ -14,8 +14,8 @@ class LearningSky extends Component{
     constructor(props){
         super(props)
         this.state = {
-            fixedConstellations : [[[120, 120, 220, 140], [220, 140, 350, 350], [280, 240, 350, 350]]],
-            stars : [[120, 120], [220, 140], [280, 240], [350, 350]],
+            fixedConstellations : [],
+            stars : [],
             points: [],
             starsize: 3,
             stageScale: 1,
@@ -42,7 +42,6 @@ class LearningSky extends Component{
         })
 
     }
-
 
     
     isOnStar = (x, y) => {
