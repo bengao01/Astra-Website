@@ -1,9 +1,9 @@
 import React, {Component, useReducer} from "react"
 
 import "../../utilities.css";
-import "./ProfileSky.css";
+import "./ProfileSkyBox.css";
 
-class ProfileSky extends Component{
+class ProfileSkyBox extends Component{
     constructor(props){
         super(props)
         
@@ -18,12 +18,13 @@ class ProfileSky extends Component{
     render(){
         return(
             <>
-                <div className="ProfileSky-body">
-                    {this.props.skyId}
+                <div className="ProfileSkyBox-body">
+                    {/* {this.props.skyId} */}
+                    {this.props.name}
                 </div>
             </>
         );
     }
 }
 
-export default ProfileSky;
+export default ProfileSkyBox;

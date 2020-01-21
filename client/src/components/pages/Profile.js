@@ -3,7 +3,7 @@ import React, {Component} from "react"
 import "../../utilities.css";
 import "./Profile.css";
 import ProfileSideBar from "../modules/ProfileSideBar.js"
-import ProfileSky from "../modules/ProfileSky.js"
+import ProfileSkyBox from "../modules/ProfileSkyBox.js"
 import {get} from "../../utilities"
 import { post } from "../../utilities";
 
@@ -41,7 +41,7 @@ class Profile extends Component{
                     
                     <div className="Profile-ProfileSky">
                         {this.state.skyObjs.map((sky) => 
-                            <ProfileSky skyId={sky._id}/>
+                            <ProfileSkyBox skyId={sky._id} name={sky.name}/>
                         )}
 
                     </div>
