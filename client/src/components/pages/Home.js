@@ -51,7 +51,7 @@ class Home extends Component {
             <div className="quote">
               reach for the stars
             </div>
-            <img src="constellation.png" className="constellation-image"/>
+            <img src="constellationSky.png" className="constellation-image"/>
           </div>
         </section>
         <section>  
