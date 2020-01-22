@@ -44,6 +44,8 @@ class NewConstellationInput extends Component{
         post("/api/constellation", body).then(() => {
             this.props.resetNewConstellation()
         });
+
+        this.props.updateConstellationNames(value);
         // post("/api/constellation", body).then((constellation) => {
         //   // display this comment on the screen
         //   this.props.addNewConstellation(constellation);

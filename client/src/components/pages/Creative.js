@@ -19,6 +19,7 @@ class Creative extends Component{
             newConstellations : [],
             //the current constellation the user is making
             newConstellation : [],
+            constellationNames: [],
             name : "",
             skyId : "",
         }
@@ -68,9 +69,16 @@ class Creative extends Component{
         this.setState({
             newConstellations : [],
             newConstellation: [],
+            constellationNames: [],
         });
     }
 
+    updateConstellationNames = (newName) => {
+        this.setState({
+            constellationNames : this.state.constellationNames.concat(newName),
+        });
+        console.log("update constellation names");
+    }
 
     render(){
         if(!this.state.skyId){
@@ -82,8 +90,11 @@ class Creative extends Component{
                     <div className="Creative-creativeSideBar">
                         <CreativeSideBar 
                             newConstellation={this.state.newConstellation} 
+                            newConstellations={this.state.newConstellations}
+                            constellationNames={this.state.constellationNames}
                             resetNewConstellation={this.resetNewConstellation}
                             resetNewConstellations={this.resetNewConstellations} 
+                            updateConstellationNames={this.updateConstellationNames}
                             skyId={this.state.skyId}/>
                         {console.log(this.state.skyId)}
                     </div>
