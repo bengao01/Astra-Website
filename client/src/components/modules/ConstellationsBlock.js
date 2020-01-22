@@ -25,6 +25,12 @@ class ConstellationsBlock extends Component{
                 <div className="ConstellationsBlock-Title">
                     <div>Your Constellation Names:</div>
                 </div>
+                <div>
+                    {this.props.constellationNames.map((constellation) => 
+                            <div>{constellation}
+                            </div>
+                    )}
+                </div>
             </div>
             </>
         );
