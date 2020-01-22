@@ -37,7 +37,7 @@ class ProfileSky extends Component{
             <>
             <div className="Profile-container">
                 <div className="Profile-ProfileBar">
-                    <ProfileSkySideBar className="ProfileSkySideBar-body"/>
+                    <ProfileSkySideBar className="ProfileSkySideBar-body" savedConstellations={this.state.savedConstellations}/>
                 </div>
                 <div>
                     <SavedSky name={this.props.userName} skyId={this.props.skyId} savedConstellations={this.state.savedConstellations}/>

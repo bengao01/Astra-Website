@@ -26,6 +26,14 @@ class ProfileSkySideBar extends Component{
                 <div className="ProfileSkySideBar-content" >
                     <div>Welcome to your sky!</div>
                 </div>
+
+                <div>
+                    {this.props.savedConstellations.map((constellation) => 
+                            <div>{constellation.name}</div>
+                    )}
+                </div>
+
+                {/* map the sky array and display the sky names on the */}
             </div>
             </>
         );
