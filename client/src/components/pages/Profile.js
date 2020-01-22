@@ -39,7 +39,7 @@ class Profile extends Component{
                         <ProfileSideBar className="ProfileSideBar-body" name={this.props.name}/>
                     </div>
                     
-                    <div className="Profile-ProfileSky">
+                    <div className="Profile-ProfileSkyBox">
                         {this.props.skyObjs.map((sky) => 
                             (<ProfileSkyBox skyId={sky._id} name={sky.name}/>)
                         )}

@@ -114,7 +114,8 @@ class App extends Component {
               (<ProfileSky
                 path={`/profilesky/${sky._id}`}
                 name={this.state.userName}
-                skyObjs={this.state.skyObjs}
+                // skyObjs={this.state.skyObjs}
+                skyId={sky._id}
               />)
           )}
 

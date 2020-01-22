@@ -99,6 +99,7 @@ router.get("/constellation", (req, res) => {
     sky_id: req.query.sky_id,
   }).then((constellation) => {
     res.send(constellation);
+    console.log(constellation)
   });
 });
 

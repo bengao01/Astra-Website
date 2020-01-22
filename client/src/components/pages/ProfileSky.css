@@ -1,0 +1,18 @@
+.ProfileSky-ProfileBar{
+    display : flex;
+    flex-basis : 300px;
+    width : 300px;
+    
+}
+
+.ProfileSky-ProfileSky{
+    display : flex;
+    flex-grow: 1;
+    flex-basis : 0;
+    flex-wrap: wrap;
+}
+
+.ProfileSky-container{
+    display:flex;
+    flex-direction: row;
+}

@@ -1,0 +1,12 @@
+.ProfileSkySideBar-body {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    /* max-width: 250px; */
+    flex-direction: column;
+}
+
+.ProfileSkySideBar-content{
+    display : flex;
+    padding: 10px 10px 10px 10px;
+}
