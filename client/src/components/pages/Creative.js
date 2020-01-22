@@ -71,6 +71,12 @@ class Creative extends Component{
         });
     }
 
+    deleteUnsavedConstellation = () => {
+        this.setState({
+            newConstellation : [],
+        });
+    }
+
 
     render(){
         if(!this.state.skyId){
@@ -84,8 +90,8 @@ class Creative extends Component{
                             newConstellation={this.state.newConstellation} 
                             resetNewConstellation={this.resetNewConstellation}
                             resetNewConstellations={this.resetNewConstellations} 
+                            deleteUnsavedConstellation={this.deleteUnsavedConstellation}
                             skyId={this.state.skyId}/>
-                        {console.log(this.state.skyId)}
                     </div>
                     <div className="Creative-sky">
                         <CreativeSky 

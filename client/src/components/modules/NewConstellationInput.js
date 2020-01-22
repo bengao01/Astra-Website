@@ -34,6 +34,11 @@ class NewConstellationInput extends Component{
         console.log("handle constellation submit");
     };
 
+    handleDelete = (event) => {
+        event.preventDefault();
+        this.props.deleteUnsavedConstellation();
+    }
+
     addConstellation = (value) => {
         // const body = { sky_id: this.props.sky_id, name: constellationName };
         console.log("add constellation");
@@ -49,6 +54,8 @@ class NewConstellationInput extends Component{
         //   this.props.addNewConstellation(constellation);
         // });
     };
+
+
 
     componentDidMount(){
 
@@ -76,6 +83,14 @@ class NewConstellationInput extends Component{
                         onClick={this.handleSubmit}
                     >
                         Save
+                    </button>
+                    <button
+                        type="submit"
+                        value="Submit"
+                        className="u-pointer"
+                        onClick={this.handleDelete}
+                    >
+                        Delete Unsaved Constellation
                     </button>
                 </div>
             </div>

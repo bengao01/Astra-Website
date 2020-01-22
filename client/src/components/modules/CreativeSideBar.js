@@ -27,8 +27,8 @@ class CreativeSideBar extends Component{
                 <NewConstellationInput 
                     newConstellation={this.props.newConstellation} 
                     resetNewConstellation={this.props.resetNewConstellation} 
+                    deleteUnsavedConstellation={this.props.deleteUnsavedConstellation}
                     skyId={this.props.skyId}/>
-                {console.log(this.props.skyId)}
                 <NewSkyInput 
                     resetNewConstellations={this.props.resetNewConstellations} 
                     skyId={this.props.skyId}
