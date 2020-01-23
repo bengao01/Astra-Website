@@ -6,7 +6,6 @@ import Edge from "./Edge.js"
 import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Text, Group, Circle} from 'react-konva';
-import { constelledges } from "./constellationedges.js";
 import { starlocs } from "./starlocations.js";
 
 //has a props: learning-if learning mode is on
@@ -16,7 +15,7 @@ class LearningSky extends Component{
         this.state = {
             stars : [],
             points: [],
-            starsize: 4,
+            starsize: 3,
             stageScale: 1,
             stageWidth: 0,
             stageX: 0,
@@ -52,12 +51,6 @@ class LearningSky extends Component{
             }
         }
         return false;
-    }
-
-    isOnConstellation = (x, y) => {
-        if(isOnStar){
-
-        }
     }
 
     static defaultProps = {};
@@ -205,6 +198,22 @@ class LearningSky extends Component{
                         {this.props.learning && this.props.fixedConstellations.map((constellation) => 
                             <Constellation edges={constellation}/>
                         )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize+3} fill = "#808080"/>
+                        )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize+3} fill = "#808080"/>
+                        )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize} fill = "white"/>
+                            
+                        )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize} fill = "white"/>
+                            
+                        )}
+
+
                         
                         </Layer>
                         <Layer>

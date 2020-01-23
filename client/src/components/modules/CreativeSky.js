@@ -206,8 +206,12 @@ class CreativeSky extends Component{
                         )}
 
                         {this.state.firstclick &&
-                            <Circle x={this.state.edge[0]} y={this.state.edge[1]} radius={this.state.starsize}  fill = "blue"/>
+                            <Circle x={this.state.edge[0]} y={this.state.edge[1]} radius={this.state.starsize+3}  fill = "white" opacity = {.4}/>
                         }
+
+                        {this.state.firstclick &&
+                            <Circle x={this.state.edge[0]} y={this.state.edge[1]} radius={this.state.starsize}  fill = "white"/>
+                        }   
 
                         {this.props.newConstellations && this.props.newConstellations.map((edges) =>         
                             <Edge position={edges}/>

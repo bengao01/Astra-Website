@@ -17,7 +17,10 @@ class LearningSideBar extends Component{
 
     }
 
-    
+    // writeSomething = (name) => {
+    //     this.props.constellGlow(name)
+    // }
+
     render(){
         return(
             <>
@@ -25,7 +28,10 @@ class LearningSideBar extends Component{
                 <div className="LearningSideBar-content" >
                     <div className="LearningSideBar-constellationName">
                         {this.props.constellationNames.map((name) =>
-                            <div>{name}</div>
+                            <div onClick={()=>this.props.constellGlow(name)}>
+                            {/* onclick={this.props.constellGlow(name)} */}
+                                {name} 
+                            </div>
                         )}
                     </div>                 
                 </div>
