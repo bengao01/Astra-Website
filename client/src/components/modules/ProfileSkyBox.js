@@ -24,9 +24,9 @@ class ProfileSkyBox extends Component{
     render(){
         return(
             <>
-                <div className="ProfileSkyBox-body" onClick={this.changePage}>
+                <div className="ProfileSkyBox-container" onClick={this.changePage}>
                         {/* {this.props.skyId} */}
-                        <Link to={`/profilesky/${this.props.skyId}`}>
+                        <Link className="ProfileSkyBox-body" to={`/profilesky/${this.props.skyId}`}>
                             {this.props.name}
                         </Link>
                 </div>

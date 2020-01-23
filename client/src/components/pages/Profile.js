@@ -34,10 +34,12 @@ class Profile extends Component{
 
         return(
             <>
+                <div className="Profile-ProfileNameContainer">
+                        <div className="Profile-ProfileNameBody">{`Welcome to your profile ${this.props.name}!`}</div>
+                </div>
                 <div className="Profile-container">
-                    <div className="Profile-ProfileBar">
-                        <ProfileSideBar className="ProfileSideBar-body" name={this.props.name}/>
-                    </div>
+                    
+
                     
                     <div className="Profile-ProfileSkyBox">
                         {this.props.skyObjs.map((sky) => 

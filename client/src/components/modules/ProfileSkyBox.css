@@ -1,6 +1,18 @@
-.ProfileSkyBox-body{
+.ProfileSkyBox-container{
     display : flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding : 10px 10px;
-    color: aliceblue;
+}
+
+.ProfileSkyBox-body{
+    color : white;
+    font-size : 24px;
+    padding : 20px;
+    margin : 30px;
+    background-color: rgb(62, 107, 206);
+    width : 300px;
+    height : 200px;
+    justify-content : space-around;
+    border-radius: 10px;
 }

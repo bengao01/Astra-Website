@@ -1,8 +1,12 @@
-.Profile-ProfileBar{
-    display : flex;
-    flex-basis : 300px;
-    width : 300px;
-    
+.Profile-ProfileNameContainer{
+    margin : 24px;
+    text-align: center;     
+    color : white;
+    font-size: 32px;
+}
+
+.Profile-ProfileNameBody{
+
 }
 
 .Profile-ProfileSkyBox{
