@@ -23,7 +23,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="body"> 
+      <> 
         {/* <h1>Good luck on your project :)</h1>
 
           <h2> What we provide in this skeleton</h2>
@@ -44,6 +44,7 @@ class Home extends Component {
         </ul>
         {/* <Constellation></Constellation> */}
         <section>
+          <div className="main">
             <div className="title">
               ASTRA
             </div>
@@ -51,6 +52,7 @@ class Home extends Component {
               reach for the stars
             </div>
             <img src="constellationSky.png" className="constellation-image"/>
+          </div>
         </section>
         <section>  
           <div className="instructions-block">
@@ -69,7 +71,7 @@ class Home extends Component {
             </div>
           </div>
         </section>
-      </div>
+      </>
     );
   }
 }
