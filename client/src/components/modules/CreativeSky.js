@@ -22,9 +22,8 @@ class CreativeSky extends Component{
             stageY: 0,
             imageX: 0,
             imageY: 0,
-            firstclick: false,
+            firstclick: true,
             edge: [],
-            transform : [],
         }
     }
 
@@ -35,16 +34,31 @@ class CreativeSky extends Component{
 
     }
     
-    isOnStar = (x, y) => {
-        for(let i=0; i < this.state.transform.length; i++){
-            if (Math.abs(x-this.state.transform[i][0]) <= this.state.starsize && Math.abs(y - this.state.transform[i][1]) <= this.state.starsize){
-                console.log("is onStar")
+    starClicked = (x, y) => {
+        console.log(x, y);
+        console.log(this.state.firstclick);
 
-                return [this.state.stars[i][0], this.state.stars[i][1]];
-            }
+        if(this.state.firstclick){
+            this.setState({
+                firstclick : false,
+                edge : [x, y],
+            });
         }
-        return false;
+        
+        if(!this.state.firstclick){
+            let newEdge = this.state.edge.concat([x, y]);
+            this.props.updateNewConstellation(newEdge);
+
+            this.setState({
+                firstclick : true,
+                edge : [],
+            });
+        }
+
+        console.log(this.state.edge);
+
     }
+
 
     static defaultProps = {};
 
@@ -77,65 +91,9 @@ class CreativeSky extends Component{
         const invertedTransform = new Konva.Transform(
           absTransform.getMatrix()
         ).invert();
-        //console.log(pos);
-        let transformedLocs = []
-        starlocs.map((star) => {
-            let point = invertedTransform.point({x : star[0], y : star[1]});
-            return transformedLocs.push([point.x, point.y]);
-        });
-
-        console.log(transformedLocs);
-
-        this.setState({transform : transformedLocs});
     
         const pointPos = invertedTransform.point(pos);
-        console.log(pointPos)
-        console.log(pos)
-        let starCoord = this.isOnStar(pointPos.x, pointPos.y);
-        //let starCoord = this.isOnStar(pos.x, pos.y);
-
-        if (starCoord && this.state.firstclick == false){
-            this.setState({
-                firstclick: true,
-                edge: [starCoord[0], starCoord[1]],
-            })
-        }    
-        else if(starCoord && this.state.firstclick){
-            let newEdge = this.state.edge.concat([starCoord[0], starCoord[1]]);
-            if(this.props.newConstellation.length == 0){
-                this.setState({
-                    edge: [],
-                    firstclick : false,
-                })
-                this.props.updateNewConstellation(newEdge);
-
-            }
-            else{
-                console.log(this.props.newConstellation)
-                this.setState({
-                    edge: [],
-                    firstclick : false,
-                })
-                this.props.updateNewConstellation(newEdge);
-            }
-          
-          console.log(this.props.newConstellation);
-        }
-        else if(this.state.firstclick && !this.isOnStar(pos.x,pos.y)){
-            this.setState({
-                firstclick: false,
-                edge : [],
-            })
-        }
-        else{
-            this.setState({
-                firstclick: false,
-                edge : [],
-            })
-        }
-
-        console.log(this.state.firstclick)
-    
+        
         this.setState({
           points: this.state.points.concat([pointPos]),
         });
@@ -202,7 +160,7 @@ class CreativeSky extends Component{
 
 
                         {this.state.stars.map((star) => 
-                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
+                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white" onClick={() => this.starClicked(star[0], star[1])}/>
                         )}
 
                         {this.state.firstclick &&

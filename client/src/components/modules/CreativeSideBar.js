@@ -32,7 +32,7 @@ class CreativeSideBar extends Component{
                     constellationNames={this.props.constellationNames}
                     updateConstellationNames={this.props.updateConstellationNames}
                 />
-                {console.log(this.props.skyId)}
+                {/* {console.log(this.props.skyId)} */}
                 <NewSkyInput 
                     resetNewConstellations={this.props.resetNewConstellations} 
                     skyId={this.props.skyId}
