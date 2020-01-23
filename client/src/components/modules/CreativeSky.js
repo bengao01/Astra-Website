@@ -22,7 +22,8 @@ class CreativeSky extends Component{
             stageY: 0,
             imageX: 0,
             imageY: 0,
-            firstclick: true,
+            //firstclick true means there has been 1 click on a star
+            firstclick: false,
             edge: [],
         }
     }
@@ -35,22 +36,18 @@ class CreativeSky extends Component{
     }
     
     starClicked = (x, y) => {
-        console.log(x, y);
-        console.log(this.state.firstclick);
-
-        if(this.state.firstclick){
+        if(this.state.firstclick === false){
             this.setState({
-                firstclick : false,
+                firstclick : true,
                 edge : [x, y],
             });
-        }
-        
-        if(!this.state.firstclick){
+        }       
+        else if(this.state.firstclick){
             let newEdge = this.state.edge.concat([x, y]);
             this.props.updateNewConstellation(newEdge);
 
             this.setState({
-                firstclick : true,
+                firstclick : false,
                 edge : [],
             });
         }
