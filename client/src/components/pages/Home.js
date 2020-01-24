@@ -23,7 +23,7 @@ class Home extends Component {
 
   render() {
     return (
-      <> 
+      <div className="u-scroll"> 
         {/* <h1>Good luck on your project :)</h1>
 
           <h2> What we provide in this skeleton</h2>
@@ -71,7 +71,7 @@ class Home extends Component {
             </div>
           </div>
         </section>
-      </>
+      </div>
     );
   }
 }

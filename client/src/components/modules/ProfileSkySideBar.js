@@ -24,11 +24,11 @@ class ProfileSkySideBar extends Component{
             <>
             <div className="ProfileSkySideBar-body">
                 <div className="ProfileSkySideBar-content" >
-                    <div>Welcome to your sky!</div>
-                    <div>Your Constellations:</div>
+                    <div className="ProfileSkySideBar-content">Welcome to your sky!</div>
+                    <div className="ProfileSkySideBar-content">Your Constellations:</div>
                 </div>
 
-                <div>
+                <div className="ProfileSkySideBar-NameContainer">
                     {this.props.savedConstellations.map((constellation) => 
                             <div className="ProfileSkySideBar-constellationName">{constellation.name}</div>
                     )}

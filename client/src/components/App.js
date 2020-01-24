@@ -36,6 +36,7 @@ class App extends Component {
           userId: user._id,
           userName : user.name,
         });
+        this.retrieveAllSkies();
       }
     });
   //   .then(() => { 
@@ -91,7 +92,7 @@ class App extends Component {
           handleLogout={this.handleLogout}
           userId={this.state.userId}
         />
-        <Router primary={false}>
+        <Router primary={false} className="u-fillParent">
           <Home
             path="/"
             handleLogin={this.handleLogin}
@@ -108,7 +109,6 @@ class App extends Component {
             path={`/profile/${this.state.userId}`}
             name={this.state.userName}
             skyObjs={this.state.skyObjs}
-            retrieveAllSkies={this.retrieveAllSkies()}
           />
           {this.state.skyObjs.map((sky) => 
               (<ProfileSky

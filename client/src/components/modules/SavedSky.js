@@ -34,31 +34,6 @@ class SavedSky extends Component{
 
     }
 
-    // processConstEdge = () => {
-    //     this.setState({
-    //         fixedConstellations: Object.values(constelledges)
-    //     })
-
-    // }
-
-    
-    isOnStar = (x, y) => {
-        for(let i=0; i < this.state.stars.length; i++){
-            if (Math.abs(x-this.state.stars[i][0]) <= this.state.starsize && Math.abs(y - this.state.stars[i][1]) <= this.state.starsize){
-                console.log("is onStar")
-
-                return [this.state.stars[i][0], this.state.stars[i][1]];
-            }
-        }
-        return false;
-    }
-
-    isOnConstellation = (x, y) => {
-        if(isOnStar){
-
-        }
-    }
-
     static defaultProps = {};
 
     handleWheel = e => {
@@ -93,48 +68,6 @@ class SavedSky extends Component{
     
         const pointPos = invertedTransform.point(pos);
 
-        // let starCoord = this.isOnStar(pos.x, pos.y);
-        // if (starCoord && this.state.firstclick == false){
-        //     this.setState({
-        //         firstclick: true,
-        //         edge: [starCoord[0], starCoord[1]],
-        //     })
-        // }    
-        // else if(starCoord && this.state.firstclick){
-        //     let newEdge = this.state.edge.concat([starCoord[0], starCoord[1]]);
-        //     if(this.state.newConstellation.length == 0){
-        //         this.setState({
-        //             newConstellation : [newEdge],
-        //             edge: [],
-        //             firstclick : false,
-        //         })
-        //     }
-        //     else{
-        //         console.log(this.state.newConstellation)
-        //         this.setState({
-        //             newConstellation : this.state.newConstellation.concat([newEdge]),
-        //             edge: [],
-        //             firstclick : false,
-        //         })
-        //     }
-          
-        //   console.log(this.state.newConstellation);
-        // }
-        // else if(this.state.firstclick && !this.isOnStar(pos.x,pos.y)){
-        //     this.setState({
-        //         firstclick: false,
-        //         edge : [],
-        //     })
-        // }
-        // else{
-        //     this.setState({
-        //         firstclick: false,
-        //         edge : [],
-        //     })
-        // }
-
-        // console.log(this.state.firstclick)
-    
         this.setState({
           points: this.state.points.concat([pointPos]),
         });
@@ -160,11 +93,6 @@ class SavedSky extends Component{
     componentDidMount(){
         this.processStarLoc();
         //this.processConstEdge();
-    }
-
-
-    addEdge = (x1, y1, x2, y2) => {
-
     }
 
     render(){

@@ -77,11 +77,12 @@ class NewConstellationInput extends Component{
                         size="35"
                         value={this.state.value}
                         onChange={this.handleChange}
+                        className="input"
                     />
                     <button
                         type="submit"
                         value="Submit"
-                        className="u-pointer"
+                        className="u-pointer btn btn-success btn:hover"
                         onClick={this.handleSubmit}
                     >
                         Save
@@ -89,7 +90,7 @@ class NewConstellationInput extends Component{
                     <button
                         type="submit"
                         value="Submit"
-                        className="u-pointer"
+                        className="u-pointer btn btn-danger btn:hover"
                         onClick={this.handleDelete}
                     >
                         Delete Unsaved Constellation
