@@ -12,6 +12,7 @@ class Learning extends Component{
             constellationNames : [],
             stars: [],
             clickedConstell: [],
+            clickedName: "",
             clickedConstellStar: []
         }
     }
@@ -58,12 +59,13 @@ class Learning extends Component{
         }); 
         console.log(constellName)
         this.setState({
+            clickedName: constellName,
             clickedConstell: constelledges[constellName],
         });
+        console.log(this.state.clickedName)
         
     }
     
-
     componentDidMount(){
         this.processConstEdge();
         this.processConstName();
@@ -78,6 +80,7 @@ class Learning extends Component{
                     <LearningSideBar
                         constellationNames={this.state.constellationNames}
                         constellGlow={this.constellGlow}
+                        clickedName = {this.state.clickedName}
                     />
                 </div>
                 <div>

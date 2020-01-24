@@ -1,27 +1,22 @@
-.LearningSideBar-body {
+.LearningSideBar2-body {
     height: calc(100vh - 66px);
     background-color: white;
     display: flex;
     min-width: 250px;
     flex-direction: column;
-    column-width: 250px;
+    column-width: 280px;
     width : 100%;
     overflow-y: scroll;
 
 }
 
-.LearningSideBar-content{
+.LearningSideBar2-content{
     display : flex;
     flex-wrap: wrap;
     padding: 10px 10px 10px 10px;
 }
 
-
-
-.LearningSideBar-constellationName {
-    padding: 10px;
-    margin : 10px;
-    display : flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+.Collapse-button{
+    color: grey;
+    padding: 10px
 }
