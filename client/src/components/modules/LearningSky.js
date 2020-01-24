@@ -160,6 +160,12 @@ class LearningSky extends Component{
                         {this.props.clickedConstellStar.map((star) =>
                             <Circle x={star[0]} y={star[1]} radius={this.state.starsize+3}  fill = "white" opacity = {.4}/>
                         )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Line points={[edge[0], edge[1], edge[2], edge[3]]}
+                            stroke='white'
+                            opacity = {.25}
+                            strokeWidth={4}/>
+                        )}  
                         
                         </Layer>
                         <Layer>
