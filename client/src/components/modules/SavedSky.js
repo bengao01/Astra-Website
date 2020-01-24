@@ -4,7 +4,7 @@ import Star from "./Star.js"
 import Edge from "./Edge.js"
 import Konva from 'konva';
 import { render } from 'react-dom';
-import { Stage, Layer, Text, Group, Circle} from 'react-konva';
+import { Stage, Layer, Text, Group, Circle, Line} from 'react-konva';
 import { constelledges } from "./constellationedges.js";
 import { starlocs } from "./starlocations.js";
 
@@ -132,6 +132,16 @@ class SavedSky extends Component{
                         {this.props.savedConstellations.map((constellation) => 
                             <Constellation edges={constellation.edges}/>
                         )}
+                        
+                        {this.props.clickedConstellStar.map((star) =>
+                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize+3}  fill = "white" opacity = {.4}/>
+                        )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Line points={[edge[0], edge[1], edge[2], edge[3]]}
+                            stroke='white'
+                            opacity = {.25}
+                            strokeWidth={4}/>
+                        )}  
                         
                         </Layer>
                         <Layer>

@@ -30,7 +30,11 @@ class ProfileSkySideBar extends Component{
 
                 <div className="ProfileSkySideBar-NameContainer">
                     {this.props.savedConstellations.map((constellation) => 
-                            <div className="ProfileSkySideBar-constellationName">{constellation.name}</div>
+                            <div className="ProfileSkySideBar-constellationName" onClick={()=>this.props.constellGlow(constellation.name)}>
+                            <div className="ProfileSkySideBar-constellationName">
+                                {constellation.name}
+                            </div>
+                            </div>
                     )}
                 </div>
 
