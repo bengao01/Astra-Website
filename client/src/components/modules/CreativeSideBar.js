@@ -40,6 +40,7 @@ class CreativeSideBar extends Component{
                 <ConstellationsBlock 
                     newConstellations={this.props.newConstellations}
                     constellationNames={this.props.constellationNames}
+                    constellGlow={this.props.constellGlow}
                 />
             </div>
         );

@@ -24,7 +24,7 @@ class Profile extends Component{
         //         skyObjs : allSkies,
         //     });
         // });
-        this.props.retrieveAllSkies;
+        // this.props.retrieveAllSkies();
     }
 
     render(){
@@ -33,13 +33,11 @@ class Profile extends Component{
         // }
 
         return(
-            <>
+            <div className="u-scroll">
                 <div className="Profile-ProfileNameContainer">
                         <div className="Profile-ProfileNameBody">{`Welcome to your profile ${this.props.name}!`}</div>
                 </div>
                 <div className="Profile-container">
-                    
-
                     
                     <div className="Profile-ProfileSkyBox">
                         {this.props.skyObjs.map((sky) => 
@@ -48,7 +46,7 @@ class Profile extends Component{
                     </div>
                 </div>
                 
-            </>
+            </div>
         );
     }
 }

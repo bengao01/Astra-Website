@@ -5,7 +5,7 @@ import "./LearningSky.css"
 import Edge from "./Edge.js"
 import Konva from 'konva';
 import { render } from 'react-dom';
-import { Stage, Layer, Text, Group, Circle} from 'react-konva';
+import { Stage, Layer, Text, Group, Circle, Line} from 'react-konva';
 import { starlocs } from "./starlocations.js";
 
 //has a props: learning-if learning mode is on
@@ -168,7 +168,7 @@ class LearningSky extends Component{
                         )}  
                         
                         </Layer>
-                        <Layer>
+                        <Layer>   
                             <Group
                                 x={0}
                                 y={0}
