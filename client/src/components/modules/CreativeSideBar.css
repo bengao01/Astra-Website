@@ -3,11 +3,13 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    
+    max-width: 300px;
 }
 
 .CreativeSideBar-constellationTitle {
-    padding: 20px;
+    display : flex;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 .CreativeSideBar-skyTitle {
     padding: 10px 20px 20px 20px;

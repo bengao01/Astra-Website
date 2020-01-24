@@ -1,7 +1,9 @@
 .NavBar-container {
     padding: var(--s) var(--m);
     background-color: #011f4b; /* Define in root later as variable #2B2F77 #483475*/
-    /* display: flex; */
+    display: flex;
+    align-items: center;
+    min-height: 50px;
   }
   
   .NavBar-title {

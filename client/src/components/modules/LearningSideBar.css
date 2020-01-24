@@ -1,10 +1,13 @@
 .LearningSideBar-body {
+    height: calc(100vh - 66px);
     background-color: white;
-    height: 100vh;
     display: flex;
-    max-width: 300px;
+    min-width: 200px;
     flex-direction: column;
+    column-width: 200px;
     width : 100%;
+    overflow-y: scroll;
+
 }
 
 .LearningSideBar-content{
