@@ -11,7 +11,8 @@ class Learning extends Component{
             fixedConstellations : [],
             constellationNames : [],
             stars: [],
-            clickedConstell: []
+            clickedConstell: [],
+            clickedConstellStar: []
         }
     }
 
@@ -35,12 +36,33 @@ class Learning extends Component{
     }
 
     constellGlow = (constellName) =>{
-        console.log(constellName);
+        let norepeat = []
+        
+        constelledges[constellName].map((edge) => {
+            let first = edge[0] + "," + (edge[1])
+            let second = (edge[2]) + "," + (edge[3])
+            if (!norepeat.includes(first)){
+                norepeat.push(first);
+            }
+            if (!norepeat.includes(second)){
+                norepeat.push(second);
+            }
+        })
+        let norepeatFinal = []
+        norepeat.map((star) => {
+            let star_str = star.split(",")
+            norepeatFinal.push([parseInt(star_str[0]), parseInt(star_str[1])])
+        })
         this.setState({
-            clickedConstell: constelledges[constellName]
-            
+            clickedConstellStar: norepeatFinal
         }); 
+        console.log(constellName)
+        this.setState({
+            clickedConstell: constelledges[constellName],
+        })
+        
     }
+    
 
     componentDidMount(){
         this.processConstEdge();
@@ -59,7 +81,9 @@ class Learning extends Component{
                 </div>
                 <div>
                     <LearningSky learning={true} fixedConstellations={this.state.fixedConstellations}
-                    clickedConstell = {this.state.clickedConstell}/>
+                    clickedConstell = {this.state.clickedConstell}
+                    clickedConstellStar = {this.state.clickedConstellStar}
+                    />
                 </div>
             </div>           
         );
