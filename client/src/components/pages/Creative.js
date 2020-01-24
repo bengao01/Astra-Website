@@ -22,9 +22,11 @@ class Creative extends Component{
             newConstellation : [],
             constellationLengths: [], // gather the lengths of the constellations
             constellationNames: [],
+            newConstells : {},
             name : "",
             skyId : "",
-            clickedConstell : [],
+            clickedConstell: [],
+            clickedConstellStar : [],
         }
     }
 
@@ -61,8 +63,13 @@ class Creative extends Component{
 
 
     resetNewConstellation = () => {
+        let newConstell = {};
+        newConstell[this.state.name] = this.state.newConstellation;
+
         this.setState({
             constellationLengths : this.state.constellationLengths.concat(this.state.newConstellation.length),
+            // newConstells : this.state.newConstells.concat(this.state.name : this.state.newConstellation),
+            newConstells : Object.assign(this.state.newConstells, newConstell),
             newConstellations : this.state.newConstellations.concat(this.state.newConstellation),
             newConstellation: [],
         });
@@ -85,49 +92,38 @@ class Creative extends Component{
 
     updateConstellationNames = (newName) => {
         this.setState({
+            name: newName,
             constellationNames : this.state.constellationNames.concat(newName),
         });
         console.log("update constellation names");
     }
-    
-    constellGlow = (constellName) => {
-        console.log(constellName);
-        const index = this.state.constellationNames.indexOf(constellName);
-        // console.log(this.state.newConstellations);
-        // console.log("index");
-        // console.log(index);
-        // console.log("index + this.state.constellationLengths[index]");
-        // console.log(index + this.state.constellationLengths[index]);
-        // console.log("index + this.state.constellationLengths[index-1] + this.state.constellationLengths[index]");
-        // console.log(index + this.state.constellationLengths[index-1] + this.state.constellationLengths[index]);
 
-        if (index === 0) {
-            this.setState({
-                clickedConstell: this.state.newConstellations.slice(index, index + this.state.constellationLengths[index]),
-            }); 
-        } else {
-            // make function to add the values in a range from constellationsLengths
-            var totalLength = 0;
-            var i;
-            console.log("this.state.constellationLengths.length " + this.state.constellationLengths.length);
-            for (i=0; i < index; i++) {
-                totalLength += this.state.constellationLengths[i];
+    constellGlow = (constellName) =>{
+        let norepeat = []
+        
+        this.state.newConstells[constellName].map((edge) => {
+            let first = edge[0] + "," + (edge[1])
+            let second = (edge[2]) + "," + (edge[3])
+            if (!norepeat.includes(first)){
+                norepeat.push(first);
             }
-            console.log("totalLength" + totalLength);
-            this.setState({
-                clickedConstell: this.state.newConstellations.slice(
-                    (totalLength),
-                    (totalLength + this.state.constellationLengths[index])
-                    // use a map function to go through all the indexes
-                    // + this.state.constellationLengths[index
-                    ),
-            });
-            console.log("index + totalLength - 1 " + (index + totalLength - 1));
-            console.log("index + totalLength + this.state.constellationLengths[index] -1 " + (index + totalLength + this.state.constellationLengths[index] -1));
-        }
-
-        console.log("clickedConstell");
-        console.log(this.state.clickedConstell);
+            if (!norepeat.includes(second)){
+                norepeat.push(second);
+            }
+        });
+        let norepeatFinal = []
+        norepeat.map((star) => {
+            let star_str = star.split(",")
+            norepeatFinal.push([parseInt(star_str[0]), parseInt(star_str[1])])
+        })
+        this.setState({
+            clickedConstellStar: norepeatFinal
+        }); 
+        console.log(constellName)
+        this.setState({
+            clickedConstell: this.state.newConstells[constellName],
+        });
+        
     }
 
     render(){
@@ -156,6 +152,7 @@ class Creative extends Component{
                             newConstellation={this.state.newConstellation} 
                             updateNewConstellation={this.updateNewConstellation}
                             clickedConstell = {this.state.clickedConstell}
+                            clickedConstellStar = {this.state.clickedConstellStar}
                         />
                     </div>
                 </div>

@@ -1,13 +1,11 @@
-.LearningSky-body {
-    height: calc(100vh - 66px);
-    overflow: hidden;
-    background: linear-gradient(53deg, #0a5a45, #003b6b, #001d3a, #000f2f, #000723, #000b2d, #1c0542, #994003);
+.fillPage{
+    background: linear-gradient(53deg, #0a5a45, #003b6b, #001d3a, #000f2f, #000723, #000b2d, #28005f, #994003);
     background-size: 1600% 1600%;
 
 
-    -webkit-animation: AnimationName 400s ease infinite;
-    -moz-animation: AnimationName 400s ease infinite;
-    animation: AnimationName 400s ease infinite;
+    -webkit-animation: AnimationName 300s ease infinite;
+    -moz-animation: AnimationName 300s ease infinite;
+    animation: AnimationName 300s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
@@ -25,3 +23,4 @@
     50%{background-position:100% 15%}
     100%{background-position:0% 86%}
 }
+
