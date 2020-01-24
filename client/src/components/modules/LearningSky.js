@@ -86,48 +86,6 @@ class LearningSky extends Component{
         ).invert();
     
         const pointPos = invertedTransform.point(pos);
-
-        // let starCoord = this.isOnStar(pos.x, pos.y);
-        // if (starCoord && this.state.firstclick == false){
-        //     this.setState({
-        //         firstclick: true,
-        //         edge: [starCoord[0], starCoord[1]],
-        //     })
-        // }    
-        // else if(starCoord && this.state.firstclick){
-        //     let newEdge = this.state.edge.concat([starCoord[0], starCoord[1]]);
-        //     if(this.state.newConstellation.length == 0){
-        //         this.setState({
-        //             newConstellation : [newEdge],
-        //             edge: [],
-        //             firstclick : false,
-        //         })
-        //     }
-        //     else{
-        //         console.log(this.state.newConstellation)
-        //         this.setState({
-        //             newConstellation : this.state.newConstellation.concat([newEdge]),
-        //             edge: [],
-        //             firstclick : false,
-        //         })
-        //     }
-          
-        //   console.log(this.state.newConstellation);
-        // }
-        // else if(this.state.firstclick && !this.isOnStar(pos.x,pos.y)){
-        //     this.setState({
-        //         firstclick: false,
-        //         edge : [],
-        //     })
-        // }
-        // else{
-        //     this.setState({
-        //         firstclick: false,
-        //         edge : [],
-        //     })
-        // }
-
-        // console.log(this.state.firstclick)
     
         this.setState({
           points: this.state.points.concat([pointPos]),
@@ -202,22 +160,6 @@ class LearningSky extends Component{
                         {this.props.clickedConstellStar.map((star) =>
                             <Circle x={star[0]} y={star[1]} radius={this.state.starsize+3}  fill = "white" opacity = {.4}/>
                         )}
-                        {/* {this.props.clickedConstell.map((edge) =>
-                            <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize+3} fill = "#808080"/>
-                        )}
-                        {this.props.clickedConstell.map((edge) =>
-                            <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize+3} fill = "#808080"/>
-                        )}
-                        {this.props.clickedConstell.map((edge) =>
-                            <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize} fill = "white"/>
-                            
-                        )}
-                        {this.props.clickedConstell.map((edge) =>
-                            <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize} fill = "white"/>
-                            
-                        )} */}
-
-
                         
                         </Layer>
                         <Layer>
