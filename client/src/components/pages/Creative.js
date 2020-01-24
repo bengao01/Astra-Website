@@ -7,6 +7,7 @@ import "./Creative.css";
 // import { get } from "mongoose";
 import { get } from "../../utilities.js";
 import { post } from "../../utilities.js";
+import ConstellationsBlock from "../modules/ConstellationsBlock.js";
 
 // const mongoose = require("mongoose");
 // const ObjectId = mongoose.Schema.Types.ObjectId;
@@ -92,13 +93,41 @@ class Creative extends Component{
     constellGlow = (constellName) => {
         console.log(constellName);
         const index = this.state.constellationNames.indexOf(constellName);
-        console.log(this.state.newConstellations);
-        this.setState({
-            clickedConstell: this.state.newConstellations.slice(index, index+ this.state.constellationLengths[index]),
-            // change from constelledges to the edges in the name
-            // get the index of the name and then go to that index of the edges
-        }); 
-        console.log(this.state.newConstellations[index]);
+        // console.log(this.state.newConstellations);
+        // console.log("index");
+        // console.log(index);
+        // console.log("index + this.state.constellationLengths[index]");
+        // console.log(index + this.state.constellationLengths[index]);
+        // console.log("index + this.state.constellationLengths[index-1] + this.state.constellationLengths[index]");
+        // console.log(index + this.state.constellationLengths[index-1] + this.state.constellationLengths[index]);
+
+        if (index === 0) {
+            this.setState({
+                clickedConstell: this.state.newConstellations.slice(index, index + this.state.constellationLengths[index]),
+            }); 
+        } else {
+            // make function to add the values in a range from constellationsLengths
+            var totalLength = 0;
+            var i;
+            console.log("this.state.constellationLengths.length " + this.state.constellationLengths.length);
+            for (i=0; i < index; i++) {
+                totalLength += this.state.constellationLengths[i];
+            }
+            console.log("totalLength" + totalLength);
+            this.setState({
+                clickedConstell: this.state.newConstellations.slice(
+                    (totalLength),
+                    (totalLength + this.state.constellationLengths[index])
+                    // use a map function to go through all the indexes
+                    // + this.state.constellationLengths[index
+                    ),
+            });
+            console.log("index + totalLength - 1 " + (index + totalLength - 1));
+            console.log("index + totalLength + this.state.constellationLengths[index] -1 " + (index + totalLength + this.state.constellationLengths[index] -1));
+        }
+
+        console.log("clickedConstell");
+        console.log(this.state.clickedConstell);
     }
 
     render(){
