@@ -15,3 +15,11 @@
     flex-wrap: wrap;
     margin : 10px;
 }
+
+.ConstellationsBlock-NameContainer{
+    display : flex;
+    flex-direction: column;
+    word-break: break-word;
+    height : calc(100vh - 66px - 119px - 94px - 44px);
+    overflow : auto;
+}
