@@ -5,7 +5,7 @@ import "./CreativeSky.css"
 import Edge from "./Edge.js"
 import Konva from 'konva';
 import { render } from 'react-dom';
-import { Stage, Layer, Text, Group, Circle} from 'react-konva';
+import { Stage, Layer, Text, Group, Circle, Line} from 'react-konva';
 import { starlocs } from "./starlocations.js";
 
 //has a props: learning-if learning mode is on
@@ -176,8 +176,19 @@ class CreativeSky extends Component{
                         {this.props.newConstellation && this.props.newConstellation.map((edges) =>         
                             <Edge position={edges}/>
                         )}
-                        
+
+                        {this.props.clickedConstellStar.map((star) =>
+                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize+3}  fill = "white" opacity = {.4}/>
+                        )}
+
                         {this.props.clickedConstell.map((edge) =>
+                            <Line points={[edge[0], edge[1], edge[2], edge[3]]}
+                            stroke='white'
+                            opacity = {.25}
+                            strokeWidth={4}/>
+                        )}  
+                        
+                        {/* {this.props.clickedConstell.map((edge) =>
                             <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize+3} fill = "#808080"/>
                         )}
                         {this.props.clickedConstell.map((edge) =>
@@ -190,7 +201,7 @@ class CreativeSky extends Component{
                         {this.props.clickedConstell.map((edge) =>
                             <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize} fill = "white"/>
                             
-                        )}
+                        )} */}
                         
                         {/* <Circle x={this.props.clickedConstell[0]} y ={this.props.clickedConstell[1]} radius ={this.state.starsize+3} fill = "#808080"/>
                         <Circle x={this.props.clickedConstell[2]} y ={this.props.clickedConstell[3]} radius ={this.state.starsize+3} fill = "#808080"/>
