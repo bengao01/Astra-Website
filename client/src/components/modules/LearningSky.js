@@ -198,7 +198,11 @@ class LearningSky extends Component{
                         {this.props.learning && this.props.fixedConstellations.map((constellation) => 
                             <Constellation edges={constellation}/>
                         )}
-                        {this.props.clickedConstell.map((edge) =>
+
+                        {this.props.clickedConstellStar.map((star) =>
+                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize+3}  fill = "white" opacity = {.4}/>
+                        )}
+                        {/* {this.props.clickedConstell.map((edge) =>
                             <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize+3} fill = "#808080"/>
                         )}
                         {this.props.clickedConstell.map((edge) =>
@@ -211,7 +215,7 @@ class LearningSky extends Component{
                         {this.props.clickedConstell.map((edge) =>
                             <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize} fill = "white"/>
                             
-                        )}
+                        )} */}
 
 
                         
