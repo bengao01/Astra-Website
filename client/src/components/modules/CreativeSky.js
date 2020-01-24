@@ -123,6 +123,7 @@ class CreativeSky extends Component{
     addEdge = (x1, y1, x2, y2) => {
 
     }
+    
 
     render(){
         return(
@@ -176,6 +177,28 @@ class CreativeSky extends Component{
                             <Edge position={edges}/>
                         )}
                         
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize+3} fill = "#808080"/>
+                        )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize+3} fill = "#808080"/>                                
+                        )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[0]} y ={edge[1]} radius ={this.state.starsize} fill = "white"/>
+                            
+                        )}
+                        {this.props.clickedConstell.map((edge) =>
+                            <Circle x={edge[2]} y ={edge[3]} radius ={this.state.starsize} fill = "white"/>
+                            
+                        )}
+                        
+                        {/* <Circle x={this.props.clickedConstell[0]} y ={this.props.clickedConstell[1]} radius ={this.state.starsize+3} fill = "#808080"/>
+                        <Circle x={this.props.clickedConstell[2]} y ={this.props.clickedConstell[3]} radius ={this.state.starsize+3} fill = "#808080"/>
+                        <Circle x={this.props.clickedConstell[0]} y ={this.props.clickedConstell[1]} radius ={this.state.starsize} fill = "white"/>
+                        <Circle x={this.props.clickedConstell[2]} y ={this.props.clickedConstell[3]} radius ={this.state.starsize} fill = "white"/> */}
+
+
+
                         </Layer>
                         <Layer>
                             <Group

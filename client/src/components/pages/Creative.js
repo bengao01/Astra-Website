@@ -19,9 +19,11 @@ class Creative extends Component{
             newConstellations : [],
             //the current constellation the user is making
             newConstellation : [],
+            constellationLengths: [], // gather the lengths of the constellations
             constellationNames: [],
             name : "",
             skyId : "",
+            clickedConstell : [],
         }
     }
 
@@ -59,6 +61,7 @@ class Creative extends Component{
 
     resetNewConstellation = () => {
         this.setState({
+            constellationLengths : this.state.constellationLengths.concat(this.state.newConstellation.length),
             newConstellations : this.state.newConstellations.concat(this.state.newConstellation),
             newConstellation: [],
         });
@@ -85,6 +88,18 @@ class Creative extends Component{
         });
         console.log("update constellation names");
     }
+    
+    constellGlow = (constellName) => {
+        console.log(constellName);
+        const index = this.state.constellationNames.indexOf(constellName);
+        console.log(this.state.newConstellations);
+        this.setState({
+            clickedConstell: this.state.newConstellations.slice(index, index+ this.state.constellationLengths[index]),
+            // change from constelledges to the edges in the name
+            // get the index of the name and then go to that index of the edges
+        }); 
+        console.log(this.state.newConstellations[index]);
+    }
 
     render(){
         if(!this.state.skyId){
@@ -102,13 +117,16 @@ class Creative extends Component{
                             resetNewConstellations={this.resetNewConstellations} 
                             deleteUnsavedConstellation={this.deleteUnsavedConstellation}
                             updateConstellationNames={this.updateConstellationNames}
-                            skyId={this.state.skyId}/>
+                            skyId={this.state.skyId}
+                            constellGlow={this.constellGlow}
+                        />
                     </div>
                     <div className="Creative-sky">
                         <CreativeSky 
                             newConstellations={this.state.newConstellations} 
                             newConstellation={this.state.newConstellation} 
                             updateNewConstellation={this.updateNewConstellation}
+                            clickedConstell = {this.state.clickedConstell}
                         />
                     </div>
                 </div>

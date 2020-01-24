@@ -27,7 +27,8 @@ class ConstellationsBlock extends Component{
                 </div>
                 <div>
                     {this.props.constellationNames.map((constellation) => 
-                            <div>{constellation}
+                            <div onClick={()=>this.props.constellGlow(constellation)}>
+                                {constellation}
                             </div>
                     )}
                 </div>
