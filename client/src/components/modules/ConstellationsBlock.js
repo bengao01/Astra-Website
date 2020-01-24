@@ -21,14 +21,13 @@ class ConstellationsBlock extends Component{
     render(){
         return(
             <>
-            <div className="ConstellationsBlock-body">
-                <div className="ConstellationsBlock-Title">
-                    <div>Your Constellation Names:</div>
-                </div>
+            <div>
                 <div>
+                    <div className="ConstellationsBlock-title">Your Constellation Names:</div>
+                </div>
+                <div className="ConstellationsBlock-names">
                     {this.props.constellationNames.map((constellation) => 
-                            <div onClick={()=>this.props.constellGlow(constellation)}>
-                                {constellation}
+                            <div className="ConstellationsBlock-name">{constellation}
                             </div>
                     )}
                 </div>

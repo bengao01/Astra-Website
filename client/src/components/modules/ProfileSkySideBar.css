@@ -2,11 +2,18 @@
     background-color: white;
     height: 100vh;
     display: flex;
-    /* max-width: 250px; */
+    min-width: 200px;
     flex-direction: column;
 }
 
 .ProfileSkySideBar-content{
     display : flex;
+    flex-wrap: wrap;
     padding: 10px 10px 10px 10px;
+}
+
+.ProfileSkySideBar-constellationName{
+    display : flex;
+    padding : 10px;
+    text-align: center;
 }

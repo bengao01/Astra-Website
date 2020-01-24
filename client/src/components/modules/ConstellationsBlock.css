@@ -1,3 +1,17 @@
-.ConstellationsBlock-body {
-    padding: 10px 20px;
+.ConstellationsBlock-title {
+    display : flex;
+    flex-wrap: wrap;
+    padding : 10px;
+
+}
+
+.ConstellationsBlock-name{
+    word-wrap: break-word;
+    flex-wrap : wrap;
+    margin : 10px;
+}
+
+.ConstellationsBlock-names{
+    flex-wrap: wrap;
+    margin : 10px;
 }

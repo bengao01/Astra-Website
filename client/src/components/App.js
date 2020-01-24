@@ -85,7 +85,7 @@ class App extends Component {
     }
 
     return (
-      <>
+      <div className="fillPage">
         <NavBar
           handleLogin={this.handleLogin}
           handleLogout={this.handleLogout}
@@ -121,7 +121,7 @@ class App extends Component {
 
           <NotFound default />
         </Router>
-      </>
+      </div>
     );
   }
 }
