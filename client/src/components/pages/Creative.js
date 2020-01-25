@@ -81,6 +81,9 @@ class Creative extends Component{
             newConstellations : [],
             newConstellation: [],
             constellationNames: [],
+            newConstells : {},
+            clickedConstell: [],
+            clickedConstellStar : [],
         });
     }
 
