@@ -27,11 +27,16 @@ class NewConstellationInput extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.onSubmit && this.props.onSubmit(this.state.value);
-        this.addConstellation(this.state.value);
-        this.setState({
-            value: "",
-        });
-        console.log("handle constellation submit");
+        if(this.state.value !== ""){
+            this.addConstellation(this.state.value);
+            this.setState({
+                value: "",
+            });
+            console.log("handle constellation submit");
+        }
+        else{
+            alert("Please enter a name for your constellation!");
+        }      
     };
 
     handleDelete = (event) => {

@@ -24,14 +24,22 @@ class NewSkyInput extends Component{
         
     // Called when the user hits "Save" for a new sky
     handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.resetNewConstellations();
-        // this.props.onSubmit && this.props.onSubmit(this.state.value);
-        post("/api/updateSky", {_id : this.props.skyId, name : this.state.value});
-        this.setState({
-            value: "",
-        });
-        console.log("handle sky submit");
+        if(this.state.value !== "" && this.props.noConstellations() === false){
+            event.preventDefault();
+            this.props.resetNewConstellations();
+            // this.props.onSubmit && this.props.onSubmit(this.state.value);
+            post("/api/updateSky", {_id : this.props.skyId, name : this.state.value});
+            this.setState({
+                value: "",
+            });
+            console.log("handle sky submit");
+        }
+        else if(this.props.noConstellations()){
+            alert("Please create constellations first!");
+        }
+        else{
+            alert("Please enter a name for your Sky!");
+        }
     };
 
     addSky = (value) => {

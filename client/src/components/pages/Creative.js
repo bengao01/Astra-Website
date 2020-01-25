@@ -53,6 +53,10 @@ class Creative extends Component{
             });
     }
 
+    noConstellations = () => {
+        return this.state.constellationNames.length === 0 ? true : false;
+    }
+
 
     updateNewConstellation = (edge) => {
         this.setState({
@@ -147,6 +151,7 @@ class Creative extends Component{
                             updateConstellationNames={this.updateConstellationNames}
                             skyId={this.state.skyId}
                             constellGlow={this.constellGlow}
+                            noConstellations={this.noConstellations}
                         />
                     </div>
                     <div className="Creative-sky">
