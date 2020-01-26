@@ -19,12 +19,7 @@ class Profile extends Component{
 
     
     componentDidMount(){
-        // get("/api/allSkies").then((allSkies) => {
-        //     this.setState({
-        //         skyObjs : allSkies,
-        //     });
-        // });
-        // this.props.retrieveAllSkies();
+        this.props.requestAllSky();
     }
 
     render(){
