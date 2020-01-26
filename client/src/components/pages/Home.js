@@ -51,7 +51,7 @@ class Home extends Component {
             <div className="quote">
               reach for the stars
             </div>
-            <img src="constellationSky.png" className="constellation-image"/>
+            {/* <img src="lowquality.jpg" className="constellation-image"/>  */}
           </div>
         </section>
         <section>  
@@ -66,8 +66,6 @@ class Home extends Component {
 
             <div className="instructions">
               Login to access creative mode and your profile, where you can create new constellations and skies and save them to revisit later!
-              There is currently no zooming or panning in creative mode, but we are working hard to implement that feature.
-              (You can, but it breaks everything)
             </div>
           </div>
         </section>

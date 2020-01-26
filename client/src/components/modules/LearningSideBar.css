@@ -4,7 +4,7 @@
     display: flex;
     min-width: 250px;
     flex-direction: column;
-    column-width: 250px;
+    column-width: 280px;
     width : 100%;
     overflow-y: scroll;
 
@@ -24,4 +24,8 @@
     display : flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.NameSpace{
+    padding: 5px;
 }
