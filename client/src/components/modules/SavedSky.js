@@ -15,7 +15,7 @@ class SavedSky extends Component{
         this.state = {
             stars : [],
             points: [],
-            starsize: 4,
+            starsize: 3,
             stageScale: 1,
             stageWidth: 0,
             stageX: 0,

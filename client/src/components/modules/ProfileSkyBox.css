@@ -10,7 +10,8 @@
     font-size : 24px;
     padding : 20px;
     margin : 30px;
-    background: rgba(255, 255, 255, .3);
+    background-image: linear-gradient(rgba(255, 255, 255, .25), rgba(255, 255, 255, .3));
+    /* background: rgba(255, 255, 255, .3); */
     width : 300px;
     height : 200px;
     justify-content : space-around;
@@ -26,5 +27,10 @@
     color: white;
     float: right;
     padding: 10px;
-    background:  rgba(255, 255, 255, .1)
+    background:  rgba(255, 255, 255, .1);
+    border-radius: 5px;
+}
+
+.delete:hover{
+    background:  rgba(255, 255, 255, .25)
 }
