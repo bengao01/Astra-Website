@@ -71,6 +71,7 @@ class NewSkyInput extends Component{
                         value="Submit"
                         className="u-pointer btn btn-success"
                         onClick={this.handleSubmit}
+                        padding={3}
                         
                     >
                         Save
