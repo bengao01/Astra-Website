@@ -86,7 +86,7 @@ class App extends Component {
     }
 
     return (
-      <div className="fillPage">
+      <div className="fillPage bgAnimate">
         <NavBar
           handleLogin={this.handleLogin}
           handleLogout={this.handleLogout}

@@ -42,11 +42,11 @@ class LearningSideBar extends Component{
             <>
             <div className="LearningSideBar-body">
                 <div className="LearningSideBar-content" >
+                    Click on a constellation to learn more!
                     <div className="LearningSideBar-constellationName">
                         {this.props.constellationNames.map((name) =>
                             <div onClick={()=>this.uncollapse()}>
-                            <div onClick={()=>this.props.constellGlow(name)} >
-                            {/* onclick={this.props.constellGlow(name)} */}
+                            <div className ="NameSpace" onClick={()=>this.props.constellGlow(name)} >
                                 {name} 
                             </div>
                             </div>

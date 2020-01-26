@@ -62,7 +62,6 @@ class Learning extends Component{
             clickedName: constellName,
             clickedConstell: constelledges[constellName],
         });
-        console.log(this.state.clickedName)
         
     }
     
