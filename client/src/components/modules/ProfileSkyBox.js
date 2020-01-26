@@ -3,6 +3,8 @@ import { Link } from "@reach/router";
 
 import "../../utilities.css";
 import "./ProfileSkyBox.css";
+import { post } from "../../utilities";
+
 
 class ProfileSkyBox extends Component{
     constructor(props){
@@ -20,15 +22,26 @@ class ProfileSkyBox extends Component{
     //     </Link>
     // }
 
+    deleteSky = () => {
+        post("/api/deleteSky", {sky_id : this.props.skyId, name : this.props.name});
+        console.log("pressed")
+        this.props.requestAllSky()
+    };
 
     render(){
+        let name = this.props.name === "" ? "Unnamed" : this.props.name;
         return(
             <>
                 <div className="ProfileSkyBox-container" onClick={this.changePage}>
                         {/* {this.props.skyId} */}
-                        <Link className="ProfileSkyBox-body" to={`/profilesky/${this.props.skyId}`}>
-                            {this.props.name}
-                        </Link>
+                        <div className="ProfileSkyBox-body">
+                            <Link to={`/profilesky/${this.props.skyId}`}>
+                                {name}
+                            </Link>
+                            <button onClick={this.deleteSky}>
+                                X
+                            </button>
+                        </div>     
                 </div>
             </>
         );

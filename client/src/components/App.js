@@ -109,6 +109,7 @@ class App extends Component {
             path={`/profile/${this.state.userId}`}
             name={this.state.userName}
             skyObjs={this.state.skyObjs}
+            requestAllSky={this.retrieveAllSkies}
           />
           {this.state.skyObjs.map((sky) => 
               (<ProfileSky

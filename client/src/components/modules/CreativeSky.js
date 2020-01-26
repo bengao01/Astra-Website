@@ -28,10 +28,6 @@ class CreativeSky extends Component{
         }
     }
 
-    componentWillUnmount(){
-        alert("Please save your sky before leaving!");
-    }
-
     processStarLoc = () => {
         this.setState({
             stars: starlocs

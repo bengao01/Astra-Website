@@ -74,6 +74,16 @@ router.get("/allSkies", (req, res) => {
   }
 });
 
+router.post("/deleteSky", (req, res) => {
+  Sky.deleteOne({
+    _id : req.body.sky_id,
+    name : req.body.name,
+  })
+  .then((sky) => {
+    console.log("deleted");
+  });
+});
+
 router.post("/sky", auth.ensureLoggedIn, (req, res) => {
   const newSky = new Sky({
     name: req.body.name,
