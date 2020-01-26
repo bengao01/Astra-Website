@@ -65,9 +65,16 @@ router.get("/sky", (req, res) => {
 
 router.get("/allSkies", (req, res) => {
   if(req.user){
-    Sky.find({
-      creator : req.user._id,
-    }).then((allSkies) => {
+    Sky.deleteMany({
+      name: "",
+    })
+    .then(
+      () => 
+        Sky.find({
+        creator : req.user._id,
+      })
+    )
+    .then((allSkies) => {
       res.send(allSkies);
       console.log(allSkies);
     });

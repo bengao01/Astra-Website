@@ -32,25 +32,27 @@ class Creative extends Component{
 
 
     componentDidMount(){
-        get("/api/sky", {name: ""})
-            .then((sky) => {
-            this.setState({
-                skyId: sky._id,
-            })
-            console.log("get sky with name empty")
-            console.log(this.state.skyId)
-        })
-        .catch((error) => {
-            post("/api/sky", {name: ""}) 
-            .then((sky) => {
-                get("/api/sky", { name: "", creator: sky.creator})
-                    .then((sky) => {
-                        this.setState({
-                            skyId: sky._id,
-                        })
+        // get("/api/sky", {name: ""})
+        //     .then((sky) => {
+        //     this.setState({
+        //         skyId: sky._id,
+        //     })
+        //     console.log("get sky with name empty")
+        //     console.log(this.state.skyId)
+        // })
+        // .catch((error) => {
+        get("/api/allSkies");
+
+        post("/api/sky", {name: ""}) 
+        .then((sky) => {
+            get("/api/sky", { name: "", creator: sky.creator})
+                .then((sky) => {
+                    this.setState({
+                        skyId: sky._id,
                     })
                 })
-            });
+            })
+            // });
     }
 
     noConstellations = () => {
