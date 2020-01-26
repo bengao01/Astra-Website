@@ -10,9 +10,21 @@
     font-size : 24px;
     padding : 20px;
     margin : 30px;
-    background-color: rgb(62, 107, 206);
+    background: rgba(255, 255, 255, .3);
     width : 300px;
     height : 200px;
     justify-content : space-around;
     border-radius: 10px;
+}
+
+
+.Link{
+    color: white;
+}
+
+.delete{
+    color: white;
+    float: right;
+    padding: 10px;
+    background:  rgba(255, 255, 255, .1)
 }

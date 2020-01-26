@@ -135,7 +135,7 @@ class Creative extends Component{
 
     render(){
         if(!this.state.skyId){
-            return (<div>loading</div>)
+            return (<div className="loading">loading...</div>)
         }
         return(
             <>

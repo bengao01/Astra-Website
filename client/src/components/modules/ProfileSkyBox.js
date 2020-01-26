@@ -33,10 +33,10 @@ class ProfileSkyBox extends Component{
                 <div className="ProfileSkyBox-container" onClick={this.changePage}>
                         {/* {this.props.skyId} */}
                         <div className="ProfileSkyBox-body">
-                            <Link to={`/profilesky/${this.props.skyId}`}>
+                            <Link className="Link"to={`/profilesky/${this.props.skyId}`}>
                                 {name}
                             </Link>
-                            <button onClick={this.deleteSky}>
+                            <button className="delete"onClick={this.deleteSky}>
                                 X
                             </button>
                         </div>     
