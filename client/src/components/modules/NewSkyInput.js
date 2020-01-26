@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import "../../utilities.css";
 import "./NewSkyInput.css";
 import { post } from "../../utilities";
+import {get} from "../../utilities";
 
 
 class NewSkyInput extends Component{
@@ -32,6 +33,17 @@ class NewSkyInput extends Component{
             this.setState({
                 value: "",
             });
+    
+            post("/api/sky", {name: ""}) 
+            .then((sky) => {
+                get("/api/sky", { name: "", creator: sky.creator})
+                .then((sky) => {
+                    this.setState({
+                        skyId: sky._id,
+                    })
+                })
+            }
+        )
             console.log("handle sky submit");
         }
         else if(this.props.noConstellations()){

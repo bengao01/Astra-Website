@@ -30,7 +30,6 @@ class Creative extends Component{
         }
     }
 
-
     componentDidMount(){
         // get("/api/sky", {name: ""})
         //     .then((sky) => {
@@ -51,8 +50,15 @@ class Creative extends Component{
                         skyId: sky._id,
                     })
                 })
-            })
-            // });
+            }
+        )
+    }
+
+    resetGlow = () => {
+        this.setState({
+            clickedConstell : [],
+            clickedConstellStar : []
+        })
     }
 
     noConstellations = () => {
@@ -163,6 +169,7 @@ class Creative extends Component{
                             updateNewConstellation={this.updateNewConstellation}
                             clickedConstell = {this.state.clickedConstell}
                             clickedConstellStar = {this.state.clickedConstellStar}
+                            resetGlow = {this.resetGlow}
                         />
                     </div>
                 </div>

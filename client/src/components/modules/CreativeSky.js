@@ -36,6 +36,7 @@ class CreativeSky extends Component{
     }
     
     starClicked = (x, y) => {
+        this.props.resetGlow();
         if(this.state.firstclick === false){
             this.setState({
                 firstclick : true,
