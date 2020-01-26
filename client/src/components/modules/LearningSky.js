@@ -18,8 +18,8 @@ class LearningSky extends Component{
             starsize: 3,
             stageScale: 1,
             stageWidth: 0,
-            stageX: 0,
-            stageY: 0,
+            stageX: -60,
+            stageY: -210,
             imageX: 0,
             imageY: 0,
             firstclick: false,
@@ -57,7 +57,7 @@ class LearningSky extends Component{
 
     handleWheel = e => {
         e.evt.preventDefault();
-        const scaleBy = 1.01;
+        const scaleBy = .97;
         const stage = e.target.getStage();
         const oldScale = stage.scaleX();
         const mousePointTo = {

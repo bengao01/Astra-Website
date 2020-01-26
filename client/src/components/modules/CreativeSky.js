@@ -18,8 +18,8 @@ class CreativeSky extends Component{
             starsize: 3,
             stageScale: 1,
             stageWidth: 0,
-            stageX: 0,
-            stageY: 0,
+            stageX: -60,
+            stageY: -210,
             imageX: 0,
             imageY: 0,
             //firstclick true means there has been 1 click on a star
