@@ -79,9 +79,7 @@ router.post("/deleteSky", (req, res) => {
     _id : req.body.sky_id,
     name : req.body.name,
   })
-  .then((sky) => {
-    console.log("deleted");
-  });
+  .then((sky) => res.send(sky))
 });
 
 router.post("/sky", auth.ensureLoggedIn, (req, res) => {

@@ -9,7 +9,6 @@ import { post } from "../../utilities";
 class ProfileSkyBox extends Component{
     constructor(props){
         super(props)
-        
     }
 
 
@@ -24,8 +23,7 @@ class ProfileSkyBox extends Component{
 
     deleteSky = () => {
         post("/api/deleteSky", {sky_id : this.props.skyId, name : this.props.name});
-        console.log("pressed")
-        this.props.requestAllSky()
+        this.props.requestAllSky();
     };
 
     render(){
