@@ -5,6 +5,7 @@
     min-width: 250px;
     flex-direction: column;
     column-width: 280px;
+    max-width: 280px;
     width : 100%;
     overflow-y: scroll;
 
@@ -28,4 +29,8 @@
 
 .NameSpace{
     padding: 5px;
+}
+
+.indivName:hover{
+    color: grey;
 }
