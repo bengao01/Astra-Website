@@ -65,15 +65,9 @@ router.get("/sky", (req, res) => {
 
 router.get("/allSkies", (req, res) => {
   if(req.user){
-    Sky.deleteMany({
-      name: "",
+    Sky.find({
+      creator : req.user._id,
     })
-    .then(
-      () => 
-        Sky.find({
-        creator : req.user._id,
-      })
-    )
     .then((allSkies) => {
       res.send(allSkies);
       console.log(allSkies);
@@ -107,7 +101,6 @@ router.post("/updateSky", auth.ensureLoggedIn, (req, res) => {
     sky.name = req.body.name
     sky.save().then((sky) => res.send(sky));
   });
-
 });
 
 router.get("/constellation", (req, res) => {

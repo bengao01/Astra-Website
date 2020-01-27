@@ -3,9 +3,7 @@ import { render } from 'react-dom';
 
 import "../../utilities.css";
 import "./NewSkyInput.css";
-import { post } from "../../utilities";
-import {get} from "../../utilities";
-
+import { get, post } from "../../utilities";
 
 class NewSkyInput extends Component{
     constructor(props){
@@ -24,26 +22,23 @@ class NewSkyInput extends Component{
     };
         
     // Called when the user hits "Save" for a new sky
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         if(this.state.value !== "" && this.props.noConstellations() === false){
             event.preventDefault();
             this.props.resetNewConstellations();
+            
             // this.props.onSubmit && this.props.onSubmit(this.state.value);
-            post("/api/updateSky", {_id : this.props.skyId, name : this.state.value});
+            await post("/api/updateSky", {_id : this.props.skyId, name : this.state.value});
+                
+            await post("/api/sky", {name: ""}) 
+            .then((sky) => {
+                this.props.changeId(sky._id)
+            });
+
             this.setState({
                 value: "",
             });
-    
-            post("/api/sky", {name: ""}) 
-            .then((sky) => {
-                get("/api/sky", { name: "", creator: sky.creator})
-                .then((sky) => {
-                    this.setState({
-                        skyId: sky._id,
-                    })
-                })
-            }
-        )
+        
             console.log("handle sky submit");
         }
         else if(this.props.noConstellations()){

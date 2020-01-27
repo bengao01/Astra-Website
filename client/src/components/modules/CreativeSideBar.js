@@ -36,6 +36,7 @@ class CreativeSideBar extends Component{
                 <NewSkyInput 
                     resetNewConstellations={this.props.resetNewConstellations} 
                     skyId={this.props.skyId}
+                    changeId={this.props.changeId}
                     noConstellations={this.props.noConstellations}
                 />
                 <ConstellationsBlock 

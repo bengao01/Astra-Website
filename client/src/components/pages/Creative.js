@@ -30,34 +30,29 @@ class Creative extends Component{
         }
     }
 
-    componentDidMount(){
-        // get("/api/sky", {name: ""})
-        //     .then((sky) => {
-        //     this.setState({
-        //         skyId: sky._id,
-        //     })
-        //     console.log("get sky with name empty")
-        //     console.log(this.state.skyId)
-        // })
-        // .catch((error) => {
-        get("/api/allSkies");
+    componentWillUnmount(){
+        post("/api/deleteSky", {sky_id : this.state.skyId, name: ""});
+    }
 
+    componentDidMount(){
         post("/api/sky", {name: ""}) 
         .then((sky) => {
-            get("/api/sky", { name: "", creator: sky.creator})
-                .then((sky) => {
-                    this.setState({
-                        skyId: sky._id,
-                    })
-                })
-            }
-        )
+            this.setState({
+                skyId: sky._id,
+            })
+        })
+    }
+
+    changeId = (Id) => {
+        this.setState({
+            skyId : Id,
+        });
     }
 
     resetGlow = () => {
         this.setState({
             clickedConstell : [],
-            clickedConstellStar : []
+            clickedConstellStar : [],
         })
     }
 
@@ -160,6 +155,7 @@ class Creative extends Component{
                             skyId={this.state.skyId}
                             constellGlow={this.constellGlow}
                             noConstellations={this.noConstellations}
+                            changeId={this.changeId}
                         />
                     </div>
                     <div className="Creative-sky">
