@@ -4,7 +4,7 @@ import Sky from "../modules/Sky.js"
 import Constellation from "../modules/Constellation.js"
 import NavBar from "../modules/NavBar.js"
 
-import {Slideshow} from "./slideshow.js"
+// import {Slideshow} from "./slideshow.js"
 
 import "../../utilities.css";
 import "./Home.css";
