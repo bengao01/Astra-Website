@@ -11,6 +11,10 @@
     margin : 10px;
 }
 
+.ConstellationsBlock-name:hover{
+    color: grey;
+}
+
 .ConstellationsBlock-names{
     flex-wrap: wrap;
     margin : 10px;

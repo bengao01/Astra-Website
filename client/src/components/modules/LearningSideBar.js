@@ -47,7 +47,9 @@ class LearningSideBar extends Component{
                         {this.props.constellationNames.map((name) =>
                             <div onClick={()=>this.uncollapse()}>
                             <div className ="NameSpace" onClick={()=>this.props.constellGlow(name)} >
+                                <div className="indivName">
                                 {name} 
+                                </div>
                             </div>
                             </div>
                         )}

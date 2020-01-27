@@ -29,3 +29,7 @@
 .NameSpace{
     padding: 5px;
 }
+
+.indivName:hover{
+    color: grey;
+}

@@ -20,3 +20,7 @@
     color: grey;
     padding: 10px
 }
+
+.Collapse-button:hover{
+    color: rgb(167, 167, 167)
+}
