@@ -37,5 +37,9 @@
 
 .highlightName{
     background-color : lightgrey;
+}
+
+.highlightName:hover{
+    color : grey;
     
 }

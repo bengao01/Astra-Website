@@ -27,7 +27,10 @@ class NewConstellationInput extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.onSubmit && this.props.onSubmit(this.state.value);
-        if(this.state.value !== ""){
+        if(this.props.constellationNames.includes(this.state.value)){
+            alert("Please enter a unique name for your constellation!");
+        }
+        else if(this.state.value !== "" ){
             this.addConstellation(this.state.value);
             this.setState({
                 value: "",
