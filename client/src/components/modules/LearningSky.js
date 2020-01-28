@@ -137,13 +137,13 @@ class LearningSky extends Component{
                     y={this.state.stageY}
                     >
                         <Layer
-                            draggable
-                            x={this.state.imageX}
-                            y={this.state.imageY}
-                            ref={node => {
-                            this.imageNode = node;
-                            }}
-                            onDragEnd={this.handleImageDragEnd}
+                            // draggable
+                            // x={this.state.imageX}
+                            // y={this.state.imageY}
+                            // ref={node => {
+                            // this.imageNode = node;
+                            // }}
+                            // onDragEnd={this.handleImageDragEnd}
                         >
 
                         {this.state.stars.map((star) => 
