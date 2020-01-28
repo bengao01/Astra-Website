@@ -88,6 +88,7 @@ class Learning extends Component{
                         fixedConstellations={this.state.fixedConstellations}
                         clickedConstell = {this.state.clickedConstell}
                         clickedConstellStar = {this.state.clickedConstellStar}
+                        constellGlow={this.constellGlow}
                     />
                 </div>
             </div>           

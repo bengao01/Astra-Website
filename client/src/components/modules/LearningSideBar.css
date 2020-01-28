@@ -34,3 +34,8 @@
 .indivName:hover{
     color: grey;
 }
+
+.highlightName{
+    background-color : lightgrey;
+    
+}
