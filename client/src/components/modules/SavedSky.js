@@ -38,7 +38,7 @@ class SavedSky extends Component{
 
     handleWheel = e => {
         e.evt.preventDefault();
-        const scaleBy = 1.01;
+        const scaleBy = .97;
         const stage = e.target.getStage();
         const oldScale = stage.scaleX();
         const mousePointTo = {
