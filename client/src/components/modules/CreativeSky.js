@@ -212,3 +212,5 @@ class CreativeSky extends Component{
 }
 
 export default CreativeSky;
+
+// zooming and panning adapted from https://codesandbox.io/s/2olo66jmqr?from-embed&fbclid=IwAR3EUJbQEQjE9zZKJ4fqhboSMIJDOIy3AxNeHCHHY2HAIDa8tMk5jy2YS7E

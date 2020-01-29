@@ -6,7 +6,7 @@ body {
 }
 
 .whole {
-    background-image: url("../../../dist/nightsky5.png");
+    background-image: url("../../../dist/nightsky6.png");
     background-size: cover;
     display: flex;
 }
@@ -76,9 +76,10 @@ section {
 }
 
 .bottom-info {
-    background-color: white;
+    background-color: rgb(26, 25, 25);
     text-align: center;
-    padding: 3px;
+    padding: 5px;
+    color: white;
 }
 /* 
 ::-webkit-scrollbar {
