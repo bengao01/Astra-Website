@@ -141,7 +141,7 @@ form {
 
 .u-scroll{
   flex: 1 1 0;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .u-fillParent {

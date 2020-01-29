@@ -1,0 +1,36 @@
+html, body, #container, .carousel {
+	height:100%;
+	margin: 0;
+	width: 100%;
+}
+
+
+.slide {
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+	height: 100%;
+    width: 100%;
+	transition: background-image .3s ease-in-out;
+}
+
+.slide-arrow {
+    color: rgb(134, 134, 134);
+	cursor: pointer;
+	font-size: 2rem;
+    top: 50%;
+    position: absolute;
+}
+
+.slide-arrow:hover {
+    color: rgb(180, 180, 180)
+}
+
+.slide-arrow.right {
+    right: 1rem; 
+}
+
+.slide-arrow.left {
+    left: 1rem;
+}
