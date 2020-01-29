@@ -43,6 +43,7 @@ class CreativeSideBar extends Component{
                     newConstellations={this.props.newConstellations}
                     constellationNames={this.props.constellationNames}
                     constellGlow={this.props.constellGlow}
+                    deleteSavedConstellation={this.props.deleteSavedConstellation}
                 />
             </div>
         );

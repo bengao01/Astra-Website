@@ -27,9 +27,18 @@ class ConstellationsBlock extends Component{
             <div className="ConstellationsBlock-NameContainer">
                 <div className="ConstellationsBlock-names">
                     {this.props.constellationNames.map((constellation) => 
-                            <div onClick={()=>this.props.constellGlow(constellation)}>
-                            <div className="ConstellationsBlock-name">{constellation}
-                            </div>
+                            <div>
+                            <span onClick={()=>this.props.constellGlow(constellation)} className="ConstellationsBlock-name" >
+                                {constellation + " "}
+                            </span>
+                            <button
+                                type="submit"
+                                value="Submit"
+                                className="u-pointer btn btn-danger btn:hover"
+                                onClick={()=>this.props.deleteSavedConstellation(constellation)}
+                                >
+                                    X
+                            </button>
                             </div>
                     )}
                 </div>

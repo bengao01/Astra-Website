@@ -43,7 +43,7 @@ class Home extends Component {
           <li>Update website title in client/dist/index.html</li>
         </ul>
         {/* <Constellation></Constellation> */}
-        <section>
+        <section className="whole">
           <div className="main">
             <div className="title">
               ASTRA
@@ -51,7 +51,7 @@ class Home extends Component {
             <div className="quote">
               reach for the stars
             </div>
-            {/* <img src="lowquality.jpg" className="constellation-image"/>  */}
+            {/* <img src="./nightsky.jpg" className="constellation-image"/>  */}
           </div>
         </section>
         <section>  
