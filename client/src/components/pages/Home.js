@@ -58,6 +58,9 @@ class Home extends Component {
               </div>
           </div>
         </section>
+        <div className="bottom-info">
+          made with love by umami. constellation info from wikipedia.
+        </div>
       </div>
     );
   }
