@@ -11,9 +11,7 @@ body {
 }
 
 .main {
-    align-self: flex-end;
-    align-content: center;
-    flex-grow: 1;
+    /* align-self: flex-end; */
     padding: 200px;
 }
 
@@ -30,15 +28,15 @@ section {
     color: var(--white);
     font-size: 50px;
     display: flex;
-    justify-content: center; 
     padding: 20px 0px 0px 0px;
+    font-weight: bold;
 }
 
 .quote {
     color: #b9b9b9;
     font-size: xx-large;
     display: flex;
-    justify-content: center; 
+    margin: 0px 0px 0px 30px;
 }
 
 .instructions-block {
