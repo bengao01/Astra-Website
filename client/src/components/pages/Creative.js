@@ -101,6 +101,7 @@ class Creative extends Component{
     }
 
     deleteSavedConstellation = (constellationName) => {
+        post("api/deleteConstellation", {name: constellationName, sky_id: this.state.skyId});
         // delete from newConstellations and from the database
         let index = this.state.constellationNames.indexOf(constellationName);
         console.log("index" + index);
@@ -125,10 +126,10 @@ class Creative extends Component{
             });
 
             // delete this.state.newConstells.constellationName;
-            post("api/deleteConstellation", {name: constellationName, _id: this.state.skyId});
             console.log("newConstellations" + this.state.newConstellations);
             console.log("length" + length);
         } else {
+            post("api/deleteConstellation", {name: constellationName, sky_id: this.state.skyId});
             let length = this.state.constellationLengths[index];
             // let constellationLengthsTempOne = this.state.constellationLengths;
             // let prevLengths = constellationLengthsTempOne.splice(0, index); // need to accumlate all prev lengths
@@ -159,7 +160,6 @@ class Creative extends Component{
                 constellationLengths : constellationLengthsTempTwo,
                 // newConstells : this.state.newConstells.
             });
-            // post("api/deleteConstellation", {name: constellationName, _id: this.state.skyId});
         }
     }
 

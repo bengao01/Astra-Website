@@ -129,7 +129,7 @@ router.post("/constellation", auth.ensureLoggedIn, (req, res) => {
 
 router.post("/deleteConstellation", auth.ensureLoggedIn, (req, res) => {
   Constellation.deleteOne({
-    _id : req.body.sky_id,
+    sky_id : req.body.sky_id,
     name : req.body.name,
   })
   .then((constellation) => res.send(constellation))
