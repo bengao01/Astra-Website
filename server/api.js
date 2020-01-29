@@ -98,7 +98,9 @@ router.post("/updateSky", auth.ensureLoggedIn, (req, res) => {
     _id : req.body._id,
   })
   .then((sky) => {
-    sky.name = req.body.name
+    sky.name = req.body.name;
+    sky.time = req.body.time;
+    console.log(req.body.time);
     sky.save().then((sky) => res.send(sky));
   });
 });

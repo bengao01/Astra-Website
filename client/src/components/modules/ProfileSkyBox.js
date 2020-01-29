@@ -28,14 +28,22 @@ class ProfileSkyBox extends Component{
 
     render(){
         let name = this.props.name === "" ? "Unnamed" : this.props.name;
+        let date = new Date(this.props.time).toDateString();
         return(
             <>
                 <div className="ProfileSkyBox-container" onClick={this.changePage}>
                         {/* {this.props.skyId} */}
                         <div className="ProfileSkyBox-body">
-                            <Link className="Link"to={`/profilesky/${this.props.skyId}`}>
-                                {name}
-                            </Link>
+                            <div className="ProfileSkyBox-subbody">
+                                <Link className="Link"to={`/profilesky/${this.props.skyId}`}>
+                                    {name}
+                                </Link>
+                                
+                                <div className="ProfileSkyBox-date">
+                                    {date}
+                                </div>
+                            </div>
+
                             <button className="delete"onClick={this.deleteSky}>
                                 X
                             </button>

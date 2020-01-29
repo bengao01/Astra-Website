@@ -4,6 +4,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const SkySchema = new mongoose.Schema({
   name: String,
   creator: ObjectId,
+  time : Date,
   // sky_id: ObjectId,
 });
 

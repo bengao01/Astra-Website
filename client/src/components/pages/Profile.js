@@ -36,7 +36,7 @@ class Profile extends Component{
                     
                     <div className="Profile-ProfileSkyBox">
                         {this.props.skyObjs.map((sky) => 
-                            (<ProfileSkyBox skyId={sky._id} name={sky.name} requestAllSky={this.props.requestAllSky}/>)
+                            (<ProfileSkyBox skyId={sky._id} name={sky.name} time={sky.time} requestAllSky={this.props.requestAllSky}/>)
                         )}
                     </div>
                 </div>

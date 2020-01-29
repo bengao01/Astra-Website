@@ -28,7 +28,7 @@ class NewSkyInput extends Component{
             this.props.resetNewConstellations();
             
             // this.props.onSubmit && this.props.onSubmit(this.state.value);
-            await post("/api/updateSky", {_id : this.props.skyId, name : this.state.value});
+            await post("/api/updateSky", {_id : this.props.skyId, name : this.state.value, time : Date.now()});
                 
             await post("/api/sky", {name: ""}) 
             .then((sky) => {
