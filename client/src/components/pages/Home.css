@@ -40,6 +40,10 @@ section {
     margin: 0px 0px 0px 30px;
 }
 
+.tutorial-section {
+    height: 100vh;
+}
+
 .instructions-block {
     background-color: rgb(20, 33, 56);
     height: 100vh;

@@ -44,7 +44,7 @@ class Home extends Component {
           </div>
         </section>
         </section>
-        <section>  
+        <section className="tutorial-section">  
           <div className="instructions-block">
               <div className="instructions-title">
                 <br></br>
