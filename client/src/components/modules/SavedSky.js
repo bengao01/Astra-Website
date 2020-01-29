@@ -18,8 +18,8 @@ class SavedSky extends Component{
             starsize: 3,
             stageScale: 1,
             stageWidth: 0,
-            stageX: 0,
-            stageY: 0,
+            stageX: 100,
+            stageY: -100,
             imageX: 0,
             imageY: 0,
             firstclick: false,
@@ -165,3 +165,5 @@ class SavedSky extends Component{
 }
 
 export default SavedSky;
+
+// zooming and panning adapted from https://codesandbox.io/s/2olo66jmqr?from-embed&fbclid=IwAR3EUJbQEQjE9zZKJ4fqhboSMIJDOIy3AxNeHCHHY2HAIDa8tMk5jy2YS7E
