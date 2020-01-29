@@ -100,6 +100,69 @@ class Creative extends Component{
         });
     }
 
+    deleteSavedConstellation = (constellationName) => {
+        // delete from newConstellations and from the database
+        let index = this.state.constellationNames.indexOf(constellationName);
+        console.log("index" + index);
+        // this.state.constellationNames.splice(index);
+        // this.state.newConstellations.splice(index, )
+        if (index == 0) {
+            let length = this.state.constellationLengths[index];
+            let constellationNamesTemp = this.state.constellationNames;
+            constellationNamesTemp.splice(index, 1);
+            let newConstellationsTemp = this.state.newConstellations;
+            newConstellationsTemp.splice(index, length);
+            let constellationLengthsTemp = this.state.constellationLengths;
+            constellationLengthsTemp.splice(index, 1);
+
+            this.setState({
+                constellationNames : constellationNamesTemp,
+                newConstellations : newConstellationsTemp,
+                clickedConstell : [],
+                clickedConstellStar : [],
+                constellationLengths : constellationLengthsTemp,
+                // newConstells : this.state.newConstells.
+            });
+
+            // delete this.state.newConstells.constellationName;
+            post("api/deleteConstellation", {name: constellationName, _id: this.state.skyId});
+            console.log("newConstellations" + this.state.newConstellations);
+            console.log("length" + length);
+        } else {
+            let length = this.state.constellationLengths[index];
+            // let constellationLengthsTempOne = this.state.constellationLengths;
+            // let prevLengths = constellationLengthsTempOne.splice(0, index); // need to accumlate all prev lengths
+            let prevLength = 0;
+            // prevLengths.map((len) => 
+            //     prevLength += len
+            // )
+            for (let i=0; i<index; i++) {
+                // prevLength += constellationLengthsTempOne[i];
+                prevLength += this.state.constellationLengths[i];
+            }
+            let constellationNamesTemp = this.state.constellationNames;
+            constellationNamesTemp.splice(index, 1);
+            console.log("constellationNamesTemp " + constellationNamesTemp)
+            let newConstellationsTemp = this.state.newConstellations;
+            console.log("newConstellationsTemp " + newConstellationsTemp)
+            newConstellationsTemp.splice(prevLength, length);
+            console.log("newConstellationsTemp updated " + newConstellationsTemp)
+            let constellationLengthsTempTwo = this.state.constellationLengths;
+            constellationLengthsTempTwo.splice(index, 1);
+            console.log("constellationLengthsTempTwo " + constellationLengthsTempTwo)
+
+            this.setState({
+                constellationNames : constellationNamesTemp,
+                newConstellations : newConstellationsTemp,
+                clickedConstell : [],
+                clickedConstellStar : [],
+                constellationLengths : constellationLengthsTempTwo,
+                // newConstells : this.state.newConstells.
+            });
+            // post("api/deleteConstellation", {name: constellationName, _id: this.state.skyId});
+        }
+    }
+
     updateConstellationNames = (newName) => {
         this.setState({
             name: newName,
@@ -156,6 +219,7 @@ class Creative extends Component{
                             constellGlow={this.constellGlow}
                             noConstellations={this.noConstellations}
                             changeId={this.changeId}
+                            deleteSavedConstellation={this.deleteSavedConstellation}
                         />
                     </div>
                     <div className="Creative-sky">

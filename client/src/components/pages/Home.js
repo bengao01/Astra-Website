@@ -26,6 +26,7 @@ class Home extends Component {
   render() {
     return (
       <div className="u-scroll"> 
+        <section className="whole">
         <section>
           <div className="main">
             <div className="title">
@@ -34,8 +35,9 @@ class Home extends Component {
             <div className="quote">
               reach for the stars
             </div>
-            {/* <img src="lowquality.jpg" className="constellation-image"/>  */}
+            {/* <img src="./nightsky.jpg" className="constellation-image"/>  */}
           </div>
+        </section>
         </section>
         <section>  
           <div className="instructions-block">

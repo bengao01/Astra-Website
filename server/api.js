@@ -127,6 +127,14 @@ router.post("/constellation", auth.ensureLoggedIn, (req, res) => {
   newConstellation.save().then((constellation) => res.send(constellation));
 });
 
+router.post("/deleteConstellation", auth.ensureLoggedIn, (req, res) => {
+  Constellation.deleteOne({
+    _id : req.body.sky_id,
+    name : req.body.name,
+  })
+  .then((constellation) => res.send(constellation))
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
