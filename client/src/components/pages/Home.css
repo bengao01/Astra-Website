@@ -2,10 +2,11 @@
 body {
     /* background-color: #011f4b ; #483475 #2B2F77 */
     /* background-image: url("../../../dist/nightsky.jpg"); */
+    /* overflow: hidden; */
 }
 
 .whole {
-    background-image: url("../../../dist/nightsky4.png");
+    background-image: url("../../../dist/nightsky5.png");
     background-size: cover;
     display: flex;
 }
@@ -70,6 +71,12 @@ section {
     display: block;
 }
 
+.bottom-info {
+    background-color: white;
+    text-align: center;
+    padding: 3px;
+}
+/* 
 ::-webkit-scrollbar {
   width: 12px;
   height: 10px;
@@ -86,4 +93,4 @@ section {
 ::-webkit-scrollbar-track-piece  {
   background-color: rgba(255, 255, 255, .1);
   
-  }
+  } */
