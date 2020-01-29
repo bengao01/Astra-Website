@@ -23,6 +23,10 @@
     color: white;
 }
 
+.Link:hover{
+    color: rgb(167, 167, 167);
+}
+
 .delete{
     color: white;
     float: right;

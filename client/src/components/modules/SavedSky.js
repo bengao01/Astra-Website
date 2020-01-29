@@ -38,7 +38,7 @@ class SavedSky extends Component{
 
     handleWheel = e => {
         e.evt.preventDefault();
-        const scaleBy = 1.01;
+        const scaleBy = .97;
         const stage = e.target.getStage();
         const oldScale = stage.scaleX();
         const mousePointTo = {
@@ -116,13 +116,13 @@ class SavedSky extends Component{
                     y={this.state.stageY}
                     >
                         <Layer
-                            draggable
-                            x={this.state.imageX}
-                            y={this.state.imageY}
-                            ref={node => {
-                            this.imageNode = node;
-                            }}
-                            onDragEnd={this.handleImageDragEnd}
+                            // draggable
+                            // x={this.state.imageX}
+                            // y={this.state.imageY}
+                            // ref={node => {
+                            // this.imageNode = node;
+                            // }}
+                            // onDragEnd={this.handleImageDragEnd}
                         >
 
                         {this.state.stars.map((star) => 

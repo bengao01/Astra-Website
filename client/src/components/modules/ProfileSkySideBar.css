@@ -21,6 +21,10 @@
     word-break: break-word;
 }
 
+.ProfileSkySideBar-constellationName:hover{
+    color: grey;
+}
+
 .ProfileSkySideBar-NameContainer{
     display : flex;
     flex-direction: column;

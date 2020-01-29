@@ -7,6 +7,7 @@ import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Text, Group, Circle, Line} from 'react-konva';
 import { starlocs } from "./starlocations.js";
+import { constelledges } from "../modules/constellationedges.js";
 
 //has a props: learning-if learning mode is on
 class LearningSky extends Component{
@@ -34,23 +35,19 @@ class LearningSky extends Component{
 
     }
 
-    // processConstEdge = () => {
-    //     this.setState({
-    //         fixedConstellations: Object.values(constelledges)
-    //     })
-
-    // }
-
-    
-    isOnStar = (x, y) => {
-        for(let i=0; i < this.state.stars.length; i++){
-            if (Math.abs(x-this.state.stars[i][0]) <= this.state.starsize && Math.abs(y - this.state.stars[i][1]) <= this.state.starsize){
-                console.log("is onStar")
-
-                return [this.state.stars[i][0], this.state.stars[i][1]];
+    starClicked = (x, y) => {
+        let name = "";
+        for(var key in constelledges){
+            var value = constelledges[key];
+            for(let i=0;i<value.length;i++){
+                let edge=value[i];
+                if(x === edge[0] && y === edge[1] || x === edge[2] && y === edge[3]){
+                    name = key;
+                }
             }
         }
-        return false;
+        console.log(name);
+        this.props.constellGlow(name);
     }
 
     static defaultProps = {};
@@ -140,17 +137,17 @@ class LearningSky extends Component{
                     y={this.state.stageY}
                     >
                         <Layer
-                            draggable
-                            x={this.state.imageX}
-                            y={this.state.imageY}
-                            ref={node => {
-                            this.imageNode = node;
-                            }}
-                            onDragEnd={this.handleImageDragEnd}
+                            // draggable
+                            // x={this.state.imageX}
+                            // y={this.state.imageY}
+                            // ref={node => {
+                            // this.imageNode = node;
+                            // }}
+                            // onDragEnd={this.handleImageDragEnd}
                         >
 
                         {this.state.stars.map((star) => 
-                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white"/>
+                            <Circle x={star[0]} y={star[1]} radius={this.state.starsize}  fill = "white" onClick={() => this.starClicked(star[0], star[1])}/>
                         )}
 
                         {this.props.learning && this.props.fixedConstellations.map((constellation) => 

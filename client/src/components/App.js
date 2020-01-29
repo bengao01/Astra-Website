@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router } from "@reach/router";
+import { Router, navigate} from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Home from "./pages/Home.js";
 import Creative from "./pages/Creative.js"
@@ -75,9 +75,10 @@ class App extends Component {
     });
   };
 
-  handleLogout = () => {
+  handleLogout = async () => {
     this.setState({ userId: undefined });
-    post("/api/logout");
+    await post("/api/logout");
+    navigate("/");
   };
 
   render() {
