@@ -6,7 +6,7 @@ body {
 }
 
 .whole {
-    background-image: url("../../../dist/nightsky6.png");
+    background-image: url("../../../dist/nightsky.png");
     background-size: cover;
     display: flex;
 }
